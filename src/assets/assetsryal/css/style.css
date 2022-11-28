@@ -18230,7 +18230,7 @@ textarea.form-control-lg {
 .discover-nft-random .content-NFTs-body {
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px
 }
 

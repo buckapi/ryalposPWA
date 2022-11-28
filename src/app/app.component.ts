@@ -115,9 +115,9 @@ this._butler.hidden=true;
       const isMobile = this.deviceService.isMobile();
       const isTablet = this.deviceService.isTablet();
       const isDesktopDevice = this.deviceService.isDesktop();
-     if(isMobile){this._butler.deviceType="Celular"};
-     if(isTablet){this._butler.deviceType="Tablet"};
-     if(isDesktopDevice){this._butler.deviceType="Escritorio"};
+     if(isMobile){this._butler.deviceType="Celular";this._butler.grid=false;this._butler.list=true;};
+     if(isTablet){this._butler.deviceType="Tablet";this._butler.grid=false;this._butler.list=false};
+     if(isDesktopDevice){this._butler.deviceType="Escritorio";this._butler.grid=true;this._butler.list=false};
      // console.log(this.deviceInfo.deviceType);
     }
   ngOnInit(): void {

@@ -21,13 +21,56 @@
                         <p>Seleccione un estilista para ver el detalle o asigne un trabajo</p>
                     </div>
                     <div class="un-block-right">
-                        <a href="page-best-seller.html" class="icon-back" aria-label="iconBtn">
-                            <i class="ri-arrow-drop-right-line"></i>
+                        <a class="icon-back" aria-label="iconBtn" [hidden]="!_butler.list" (click)="viewChange('grid')">
+                            <i class="ri-layout-grid-fill" style="font-size:1rem;" ></i>
+                        </a>
+                        <a class="icon-back" aria-label="iconBtn" [hidden]="!_butler.grid" (click)="viewChange('list')">
+                            <i class="ri-list-check"  style="font-size:1rem;"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="content-list-sellers">
+                <div class="discover-nft-random margin-t-20" [hidden]="!_butler.grid">
+                    <div class="content-NFTs-body">
+                        
+                        <a href="page-collectibles-details.html" class="item-sm-card-NFTs "  *ngFor="let member of members$ | async">
+                            <div class="cover-image">
+                                <picture>
+                                    <source srcset="{{member.images[0]}}" type="image/webp">
+                                    <img class="big-image" src="{{member.images[0]}}" alt="">
+                                </picture>
+                                <div class="content-text">
+                                    <div class="btn-like-click" >
+                                        <div class="btnLike">
+                                            <input type="checkbox">
+                                            <i class="ri-add-circle-fill text-primary"></i>
+                                            <span class="count-likes"> Ticket</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-text">
+                                    <div class="user-avatar">
+                                        <picture>
+                                            <source srcset="{{member.images[0]}}" type="image/webp">
+                                            <img class="sm-user" src="{{member.images[0]}}" alt="">
+                                        </picture>
+                                        <span>{{member.name}}</span>
+                                    </div>
+                                    <div class="number-eth">
+                                        <span class="main-price">{{member.categoria}}</span>
+                                        <!-- <span>($3,650)</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                       
+                    </div>
+                </div>
+
+
+
+
+                <div class="content-list-sellers"[hidden]="!_butler.list">
                     <ul class="nav flex-column">
                         <li class="nav-item" *ngFor="let member of members$ | async" >
                             <div class="nav-link item-user-seller">
@@ -41,13 +84,10 @@
                                         <p>{{member.name}} <i class="ri-checkbox-circle-fill"></i> </p>
                                     </div>
                                 </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
+                                <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
+                                    <div class="color-text rounded-pill bg-snow btn-xs-size " >
+     <i class="ri-add-circle-fill text-primary" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
+                                     Ticket</div>
                                 </div>
                             </div>
                         </li>

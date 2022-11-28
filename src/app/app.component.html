@@ -50,10 +50,10 @@
                 <div class="item_link">
                     <a href="page-account.html" class="btn btn_navLink" aria-label="btnNavigation">
                         <div class="icon_active">
-                            <i class="ri-line-chart-line"></i>
+                            <i class="ri-pie-chart-line"></i>
                         </div>
                         <div class="current">
-                            <i class="ri-line-chart-fill"></i>
+                            <i class="ri-pie-chart-fill"></i>
                         </div>
                     </a>
                 </div>
@@ -68,7 +68,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="title-modal">Registro de servicio</h1>
+                    <h1 class="title-modal">Nuevo ticket</h1>
                     <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
                         <i class="ri-close-fill"></i>
                     </button>
@@ -83,10 +83,10 @@
                         <div class="grid_buttonUpload">
                             <a href="page-create-multi.html"
                                 class="btn btn-create bg-white border border-solid border-snow text-dark margin-b-20">
-                                Agregar servicio a ticket
+                                Servicio unico
                             </a>
                             <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
-                                Procesar ticket
+                                Multiples servicios
                             </a>
                         </div>
                     </div>
@@ -228,12 +228,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="homepage.html">
                                 <div class="icon_current">
-                                    <i class="ri-line-chart-line"></i>
+                                    <i class="ri-pie-chart-line"></i>
                                 </div>
                                 <div class="icon_active">
-                                    <i class="ri-line-chart-fill"></i>
+                                    <i class="ri-pie-chart-fill"></i>
                                 </div>
                                 <span class="title_link">Reportes</span>
+                            </a>
+                        </li>
+
+                        <label class="title__label"></label>
+                          <li class="nav-item">
+                            <a href="homepage.html" class="nav-link">
+                                <div class="icon_current">
+                                    <i class="ri-equalizer-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-equalizer-fill"></i>
+                                </div>
+                                <span class="title_link">Ajustes</span>
                             </a>
                         </li>
                      <!--    <li class="nav-item">
@@ -317,7 +330,10 @@
                         </li>
  -->
                     </ul>
+                    
                 </div>
+
+
                 <div class="modal-footer">
                     <div class="em_darkMode_menu">
                         <label class="text" for="switchDark">

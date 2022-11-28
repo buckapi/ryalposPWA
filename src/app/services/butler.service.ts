@@ -27,6 +27,8 @@ export class Butler {
     distance2:number=0;
     duration:number=0;
     biker:boolean=false;
+    list:boolean=false;
+    grid:boolean=false;
     hidden:boolean=false;
     details:boolean=false;
     editing:boolean=false;

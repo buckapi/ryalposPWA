@@ -56,6 +56,15 @@ export class ShopComponent implements AfterViewInit {
 
      
   }
+   public viewChange(option:any){
+    if(option=='grid'){
+      this._butler.grid=true;
+      this._butler.list=false;
+    }if(option=='list'){
+      this._butler.grid=false;
+      this._butler.list=true;
+    }
+  }
 
   ngAfterViewInit(): void {
 

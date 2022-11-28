@@ -21,6 +21,8 @@ export class ShopsComponent implements AfterViewInit {
 products: any;
   products$: any;  
   categories: any;
+   grid:boolean=false;
+   list:boolean=false;
   categories$: any;
      public init:number=1;
   public end:number=12;
@@ -46,6 +48,7 @@ loadProducts(){
 
      
   }
+ 
   public quick(tix:any){
     let tixToView = tix;
     this._butler.preview=tixToView;
@@ -90,7 +93,14 @@ loadProducts(){
 
   }
   ngAfterViewInit(): void {
-
+    if(this._butler.deviceType=='Escritorio'){
+        this.list=true;
+        this.grid=false;
+      }
+      else{
+        this.list=false;
+        this.grid=true;
+      }
      this.products$=this.dataApi.products$;   
      this.categories$=this.dataApi.categories$;   
  
