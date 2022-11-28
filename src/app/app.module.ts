@@ -25,8 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilePickerModule } from  'ngx-awesome-uploader';
 import { ClockModule } from './components/pages/home/clock/clock.module';
 //import { ClockComponent } from './components/pages/home/clock/clock.component';
-import { FormsModule } from '@angular/forms'; 
-
+import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 @NgModule({ 
   declarations: [
     AppComponent,
@@ -35,6 +34,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
   FormsModule,
+  ReactiveFormsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,

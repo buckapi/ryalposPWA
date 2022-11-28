@@ -1,4 +1,18 @@
-import { Component,OnInit, ElementRef,ViewChild, Inject} from '@angular/core';
+//import { Component,OnInit, ElementRef,ViewChild, Inject} from '@angular/core';
+
+import { Component, EventEmitter,AfterViewInit,  Output, ViewChild ,ElementRef} from '@angular/core'
+import { DemoFilePickerAdapter } from  './file-picker.adapter';
+import { FilePickerComponent, FilePreviewModel } from 'ngx-awesome-uploader';
+import { isError } from "util";
+import { Observable, of } from 'rxjs';
+import { UploaderCaptions } from 'ngx-awesome-uploader';
+import { HttpClient } from  '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { ValidationError } from 'ngx-awesome-uploader';
+import { delay, map } from 'rxjs/operators';
+import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
+
 import { BikersService } from './services';
 import { Butler } from './services/butler.service';
 import { Router } from '@angular/router';
@@ -13,8 +27,51 @@ import * as $ from 'jquery';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
  deviceInfo:any=null
+
+  @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
+  public adapter = new DemoFilePickerAdapter(this.http,this._butler);
+ public myFiles: FilePreviewModel[] = [];
+   public product:any={};
+     public options:any=[];
+  showB=false;  
+  submittedAcce = false;
+  category="Seleccione una!";
+  mensaje="Salida registrada!";
+       randomSerial=0;
+ new: FormGroup = new FormGroup({ 
+    description: new FormControl(''),
+    name: new FormControl(''),
+    price: new FormControl(''),
+  
+  });
+ i=1;
+two=false;
+one=true;
+three=false;
+  public captions: UploaderCaptions = {
+    dropzone: {
+    
+      title: 'Imágenes del producto',
+      or: '',
+      browse: 'Cargar',
+    },
+    cropper: {
+      crop: 'Cortar',
+      cancel: 'Cancelar',
+    },
+    previewCard: {
+      remove: 'Remover',
+      uploadError: 'Error en la carga',
+    },
+  };
+     public isError = false;
+     public images:any[]=[];
+      public cropperOptions = {
+    minContainerWidth: '300',
+    minContainerHeight: '300',
+  };
 @ViewChild('modal1')  modal1: ElementRef ;
   config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
@@ -45,6 +102,9 @@ public preview :any={
 }; 
   constructor(
 //    @Inject(DOCUMENT) document: Document,
+     private  http: HttpClient,
+      private formBuilder: FormBuilder,
+      private readonly toastSvc: ToastrService,
     public script:ScriptService,
     public bikersScript:BikersService,
     public _butler:Butler,
@@ -61,6 +121,12 @@ public preview :any={
       //  console.log('loaded from shop', data);
       })
       .catch(error => console.log(error));
+  }
+    onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
   }
 public minus(){
   if (this.quantity>1){
@@ -120,7 +186,42 @@ this._butler.hidden=true;
      if(isDesktopDevice){this._butler.deviceType="Escritorio";this._butler.grid=true;this._butler.list=false};
      // console.log(this.deviceInfo.deviceType);
     }
-  ngOnInit(): void {
+    
+   public myCustomValidator(file: File): Observable<boolean> {
+    if (!file.name.includes('uploader')) {
+      return of(true).pipe(delay(2000));
+    }
+    // if (file.size > 50) {
+    //   return this.http.get('https://vugar.free.beeceptor.com').pipe(map((res) =>  res === 'OK' ));
+    // }
+    return of(false).pipe(delay(2000));
+  }
+  
+   public onValidationError(error: ValidationError): void {
+    alert(`Validation Error ${error.error} in ${error.file.name}`);
+  }
+
+  public onUploadSuccess(e: FilePreviewModel): void {
+    console.log(e);
+      this.images=this._butler.file;
+    console.log(this.myFiles);
+  }
+
+public  setOption(){
+    this.product.categoria=this._butler.userActive.categories[this.category];
+    this.showB=true;
+   // console.log("Category selected "+this._butler.userActive.categories[this.category]);
+  }
+  public onRemoveSuccess(e: FilePreviewModel) {
+    console.log(e);
+  }
+  public onFileAdded(file: FilePreviewModel) {
+    this.myFiles.push(file);
+  }
+public aleatorio(a:any,b:any) {
+    return Math.round(Math.random()*(b-a)+parseInt(a));
+  }
+  ngAfterViewInit(): void {
      this.epicFunction();
     // this.bikersScript.getUserLocation();
     

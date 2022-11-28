@@ -58,6 +58,7 @@ export class Butler {
     cards:any[]=[]; 
 
     serialT:number=0;
-
+   file:any[]=[];
+      images:any[]=[];
     constructor() { }
 }

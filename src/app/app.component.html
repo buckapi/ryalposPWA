@@ -73,6 +73,7 @@
                         <i class="ri-close-fill"></i>
                     </button>
                 </div>
+
                 <div class="modal-body">
                     <div class="content-upload-item text-center">
                         <p>
@@ -80,7 +81,12 @@
                             <span></span>
                             
                         </p>
+
                         <div class="grid_buttonUpload">
+                                     <div class="uploader-wrapper" style="background:white;" >
+                          <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
+                          </ngx-awesome-uploader >
+                        </div>
                             <a 
                                 class="btn btn-create bg-white border border-solid border-snow text-dark margin-b-20">
                                 Servicio unico
