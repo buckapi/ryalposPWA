@@ -33,19 +33,24 @@
                 <div class="discover-nft-random margin-t-20" [hidden]="!_butler.grid">
                     <div class="content-NFTs-body">
                         
-                        <a href="page-collectibles-details.html" class="item-sm-card-NFTs "  *ngFor="let member of members$ | async">
+                        <a  class="item-sm-card-NFTs "  *ngFor="let member of members$ | async">
                             <div class="cover-image">
-                                <picture>
+                                <picture  (click)="setPreview(member)">
                                     <source srcset="{{member.images[0]}}" type="image/webp">
                                     <img class="big-image" src="{{member.images[0]}}" alt="">
                                 </picture>
                                 <div class="content-text">
-                                    <div class="btn-like-click" >
-                                        <div class="btnLike">
+                                    <div class="btn-like-click" style="background:none;" >
+                                       <!--  <div class="btnLike">
                                             <input type="checkbox">
                                             <i class="ri-add-circle-fill text-primary"></i>
                                             <span class="count-likes"> Ticket</span>
-                                        </div>
+                                        </div> -->
+                                          <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
+                                    <div class="color-text rounded-pill bg-snow btn-xs-size " >
+     <i class="ri-add-circle-fill text-primary" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
+                                     Ticket</div>
+                                </div>
                                     </div>
                                 </div>
                                 <div class="user-text">

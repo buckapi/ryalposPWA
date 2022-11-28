@@ -1,5 +1,5 @@
      <header class="default heade-sticky" [hidden]=" router.url.includes('/member') || router.url.includes('/login') ">
-        <a [routerLink]="['']">
+        <a [routerLink]="['/sumary']">
             <div class="un-item-logo">
                 <img class="logo-img light-mode" src="assets/assetsryal/images/logo_07.png" alt="">
                 <img class="logo-img dark-mode" src="assets/assetsryal/images/logo_07b.png" alt="">
@@ -38,7 +38,7 @@
     </header>
         <header class="default heade-sticky" [hidden]=" !router.url.includes('/member') ">
         <div class="un-title-page go-back">
-            <a [routerLink]="['']" class="icon">
+            <a [routerLink]="['/estilistas']" class="icon">
                 <i class="ri-arrow-drop-left-line"></i>
             </a>
             <span class="color-text size-14 weight-500">{{_butler.preview.name}}</span>
