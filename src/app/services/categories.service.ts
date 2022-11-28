@@ -2,30 +2,34 @@ import {Category} from 'src/app/interfaces/category';
 
 export const CATEGORIES: Category[] = [
     {
-    name:'Accesorios',
+    name:'Corte caballero',
+    basePrice:2000,
     images:[
-      'assets/assetsdash/images/profile/profile.png'
+      'assets/assetsryal/images/work.png'
     ],
     idCategory:'ca000001'
   }, 
   {
-    name:'Herramientas',
+       name:'Corte Dama',
+    basePrice:5000,
     images:[
-      'assets/assetsdash/images/profile/profile.png'
+      'assets/assetsryal/images/work.png'
     ],
     idCategory:'ca000002'
   },
     {
-    name:'Hogar',
+       name:'Lavado',
+    basePrice:2000,
     images:[
-      'assets/assetsdash/images/profile/profile.png'
+      'assets/assetsryal/images/work.png'
     ],
     idCategory:'ca000003'
   },
    {
-    name:'Tecnología',
+      name:'Planchado',
+    basePrice:2500,
     images:[
-      'assets/assetsdash/images/profile/profile.png'
+      'assets/assetsryal/images/work.png'
     ],
     idCategory:'ca000004'
   }  

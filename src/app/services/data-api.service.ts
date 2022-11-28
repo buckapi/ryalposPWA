@@ -20,6 +20,7 @@ export class DataApiService {
 	cierre:any;
 	serial:any;
 	transactions:any;
+	members:any;
   constructor(
   	public butler:Butler, 
  	 private http: HttpClient
@@ -35,6 +36,10 @@ export class DataApiService {
 
 	getAllTransactions(){
 		const url_api = 'https://db.buckapi.us:7001/api/transactions';
+		return this.http.get(url_api);
+	}
+	getAllMembers(){
+		const url_api = 'https://db.buckapi.us:7001/api/members';
 		return this.http.get(url_api);
 	}
 	getProduct(id: string){

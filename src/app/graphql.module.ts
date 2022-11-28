@@ -26,7 +26,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
           default: /* <-- this settings will be saved as default client */ {
             cache: new InMemoryCache(),
             link: httpLink.create({
-              uri: 'https://db.buckapi.us:4001',
+              uri: 'https://db.buckapi.us:7001',
             }),
           },
           openimport: /* <-- these settings will be saved by name: newClientName */ {

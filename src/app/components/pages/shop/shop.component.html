@@ -29,16 +29,16 @@
 
                 <div class="content-list-sellers">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
+                        <li class="nav-item" *ngFor="let member of members$ | async" >
                             <div class="nav-link item-user-seller">
                                 <a href="page-creator-profile.html" class="item-user-img">
                                     <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/22.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/22.jpg" alt="">
+                                        <source srcset="assets/assetsryal/images/avatar/22.webp" type="{{member.images[0]}}">
+                                        <img class="avt-img" src="{{member.images[0]}}" alt="">
                                     </picture>
                                     <div class="txt-user">
-                                        <h5>9.4 <span>ETH</span></h5>
-                                        <p>John Sullivan <i class="ri-checkbox-circle-fill"></i> </p>
+                                        <h5>{{member.price}} <span>ETH</span></h5>
+                                        <p>{{member.name}} <i class="ri-checkbox-circle-fill"></i> </p>
                                     </div>
                                 </a>
                                 <div class="other-option">
@@ -51,204 +51,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/9.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/9.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>7.2 <span>ETH</span></h5>
-                                        <p>Doris Logue <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox" checked>
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/16.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/16.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>6.8 <span>ETH</span></h5>
-                                        <p>James White <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link item-user-seller">
-                                <a href="page-creator-profile.html" class="item-user-img">
-                                    <picture>
-                                        <source srcset="assets/assetsryal/images/avatar/17.webp" type="image/webp">
-                                        <img class="avt-img" src="assets/assetsryal/images/avatar/17.jpg" alt="">
-                                    </picture>
-                                    <div class="txt-user">
-                                        <h5>5.1 <span>ETH</span></h5>
-                                        <p>Tito_Calab <i class="ri-checkbox-circle-fill"></i> </p>
-                                    </div>
-                                </a>
-                                <div class="other-option">
-                                    <button type="button" class="btn btn-box-check">
-                                        <input type="checkbox">
-                                        <div class="icon-box">
-                                            <i class="ri-add-fill"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
+                       
                     </ul>
                 </div>
             </section>

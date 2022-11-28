@@ -20,6 +20,7 @@ import { DealInterface } from '@app/interfaces/deal';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements AfterViewInit {
+    members$: any;
   date="Nov 30, 2022 00:00:00";
     config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
@@ -57,8 +58,9 @@ export class ShopComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-   
-     this.products$=this.dataApi.products$;   
+
+    
+     // this.products$=this.dataApi.products$;   
      this.categories$=this.dataApi.categories$;   
      this.deal=this.dataApiService.getProduct('63690c39f5378a17fb721fae') 
      .subscribe((
@@ -72,6 +74,7 @@ export class ShopComponent implements AfterViewInit {
     );
  this.cdRef.detectChanges();
    // this.loadProducts();
+    this.loadFromRestUniversal();
   }
 
 
@@ -89,7 +92,9 @@ public quick(tix:any){
     this._butler.imagePreviewProduct=this._butler.preview.images[0];
       this.router.navigate(['/product']);
   } 
-
+  public loadFromRestUniversal(){
+      this.members$=this.dataApiService.getAllMembers();
+  }
   loadmore(indice:any
     ){
     // this.products$=[];
