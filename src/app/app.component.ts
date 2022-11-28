@@ -53,7 +53,7 @@ three=false;
   public captions: UploaderCaptions = {
     dropzone: {
     
-      title: 'Imágenes del producto',
+      title: 'Foto del estilista',
       or: '',
       browse: 'Cargar',
     },
