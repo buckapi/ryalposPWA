@@ -1,4 +1,4 @@
-     <header class="default heade-sticky" [hidden]=" router.url.includes('/member') ">
+     <header class="default heade-sticky" [hidden]=" router.url.includes('/member') || router.url.includes('/login') ">
         <a [routerLink]="['']">
             <div class="un-item-logo">
                 <img class="logo-img light-mode" src="assets/assetsryal/images/logo_07.png" alt="">

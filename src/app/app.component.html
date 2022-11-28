@@ -26,7 +26,7 @@
         <!-- ===================================
           START THE BOTTOM NAVIGATION
         ==================================== -->
-        <footer class="un-bottom-navigation filter-blur">
+        <footer class="un-bottom-navigation filter-blur" [hidden]="router.url.includes('/login')">
             <div class="em_body_navigation border-0 -active-links">
                 <div class="item_link">
                     <a [routerLink]="['estilistas']"class="btn btn_navLink" aria-label="btnNavigation">
@@ -259,6 +259,17 @@
                                     <i class="ri-equalizer-fill"></i>
                                 </div>
                                 <span class="title_link">Ajustes</span>
+                            </a>
+                        </li>
+                             <li class="nav-item">
+                            <a [routerLink]="['/login']" class="nav-link">
+                                <div class="icon_current">
+                                    <i class="ri-logout-box-r-line"></i>
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-logout-box-r-fill"></i>
+                                </div>
+                                <span class="title_link">Salir</span>
                             </a>
                         </li>
                      <!--    <li class="nav-item">
