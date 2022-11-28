@@ -26,7 +26,7 @@
         <!-- ===================================
           START THE BOTTOM NAVIGATION
         ==================================== -->
-        <footer class="un-bottom-navigation filter-blur" [hidden]="router.url.includes('/login')">
+        <footer class="un-bottom-navigation filter-blur" [hidden]="router.url.includes('/login') || router.url.includes('/member')">
             <div class="em_body_navigation border-0 -active-links">
                 <div class="item_link">
                     <a [routerLink]="['estilistas']"class="btn btn_navLink" aria-label="btnNavigation">
