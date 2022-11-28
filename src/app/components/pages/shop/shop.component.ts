@@ -56,6 +56,13 @@ export class ShopComponent implements AfterViewInit {
 
      
   }
+
+  setPreview(member:any){
+    this._butler.preview=member;
+     this.router.navigate(['/member']);
+
+     
+  }
    public viewChange(option:any){
     if(option=='grid'){
       this._butler.grid=true;

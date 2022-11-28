@@ -29,6 +29,7 @@ const routes: Routes = [
 { path: 'succes', loadChildren: () => import('./components/pages/succes/succes.module').then(m => m.SuccesModule) },
 { path: 'terms', loadChildren: () => import('./components/pages/terms/terms.module').then(m => m.TermsModule) },
 { path: 'shops', loadChildren: () => import('./components/pages/shops/shops.module').then(m => m.ShopsModule) },
+{ path: 'member', loadChildren: () => import('./components/pages/member/member.module').then(m => m.MemberModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 
