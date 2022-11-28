@@ -46,15 +46,7 @@ export class ShopComponent implements AfterViewInit {
       public router:Router
     ) { 
   this.categories=CATEGORIES
-      this.script.load(     
-        'popper',
-        'bootstrap',      
-        'script'     
-      )
-      .then(data => {
-      //  console.log('loaded from shop', data);
-      })
-      .catch(error => console.log(error));
+
     }
 
   loadProducts(){
