@@ -28,14 +28,14 @@ export class HeaderComponent implements AfterViewInit {
   ) {
   this.categories=CATEGORIES
     
-         this.script.load(     
+      /*   this.script.load(     
        'glightbox',
           'swiper'
       )
       .then(data => {
       //  console.log('loaded from shop', data);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error));*/
    }
 
   config: SwiperOptions = {
