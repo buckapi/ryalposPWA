@@ -29,7 +29,7 @@
         <footer class="un-bottom-navigation filter-blur">
             <div class="em_body_navigation border-0 -active-links">
                 <div class="item_link">
-                    <a href="homepage.html" class="btn btn_navLink" aria-label="btnNavigation">
+                    <a [routerLink]="['estilistas']"class="btn btn_navLink" aria-label="btnNavigation">
                         <div class="icon_current">
                             <i class="ri-file-user-line"></i>
                         </div>
@@ -48,12 +48,12 @@
                     </button>
                 </div>
                 <div class="item_link">
-                    <a href="page-account.html" class="btn btn_navLink" aria-label="btnNavigation">
+                    <a [routerLink]="['']" class="btn btn_navLink" aria-label="btnNavigation">
                         <div class="icon_active">
-                            <i class="ri-pie-chart-line"></i>
+                            <i class="ri-home-3-line"></i>
                         </div>
                         <div class="current">
-                            <i class="ri-pie-chart-fill"></i>
+                            <i class="ri-home-3-fill"></i>
                         </div>
                     </a>
                 </div>
@@ -214,7 +214,19 @@
                 <div class="modal-body">
                     <ul class="nav flex-column -active-links">
                         <li class="nav-item">
-                            <a class="nav-link" href="homepage.html">
+                            <a class="nav-link" [routerLink]="['']">
+                                <div class="icon_current">
+                                         <i class="ri-home-3-line"></i>
+
+                                </div>
+                                <div class="icon_active">
+                                    <i class="ri-home-3-fill"></i>
+                                </div>
+                                <span class="title_link">Inicio</span>
+                            </a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['estilistas']">
                                 <div class="icon_current">
                                          <i class="ri-file-user-line"></i>
 
@@ -222,11 +234,11 @@
                                 <div class="icon_active">
                                     <i class="ri-file-user-fill"></i>
                                 </div>
-                                <span class="title_link">Miembros</span>
+                                <span class="title_link">Estilistas</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="homepage.html">
+                            <a class="nav-link" >
                                 <div class="icon_current">
                                     <i class="ri-pie-chart-line"></i>
                                 </div>
@@ -239,7 +251,7 @@
 
                         <label class="title__label"></label>
                           <li class="nav-item">
-                            <a href="homepage.html" class="nav-link">
+                            <a  class="nav-link">
                                 <div class="icon_current">
                                     <i class="ri-equalizer-line"></i>
                                 </div>

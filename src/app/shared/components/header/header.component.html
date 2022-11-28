@@ -1,5 +1,5 @@
      <header class="default heade-sticky" [hidden]=" router.url.includes('/member') ">
-        <a href="index.html">
+        <a [routerLink]="['']">
             <div class="un-item-logo">
                 <img class="logo-img light-mode" src="assets/assetsryal/images/logo_07.png" alt="">
                 <img class="logo-img dark-mode" src="assets/assetsryal/images/logo_07b.png" alt="">
@@ -41,12 +41,12 @@
             <a [routerLink]="['']" class="icon">
                 <i class="ri-arrow-drop-left-line"></i>
             </a>
-            <span class="color-text size-14 weight-500">@Rocc097</span>
+            <span class="color-text size-14 weight-500">{{_butler.preview.name}}</span>
         </div>
-        <div class="un-block-right">
+<!--         <div class="un-block-right">
             <button type="button" class="btn btn-box-icon bg-snow text-dark" data-bs-toggle="modal"
                 data-bs-target="#mdllShareProfile">
                 <i class="ri-share-forward-line"></i>
             </button>
-        </div>
+        </div> -->
     </header>

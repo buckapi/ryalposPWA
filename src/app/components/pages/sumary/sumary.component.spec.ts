@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemberComponent } from './member.component';
+import { SumaryComponent } from './sumary.component';
 
-describe('MemberComponent', () => {
-  let component: MemberComponent;
-  let fixture: ComponentFixture<MemberComponent>;
+describe('SumaryComponent', () => {
+  let component: SumaryComponent;
+  let fixture: ComponentFixture<SumaryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MemberComponent ]
+      declarations: [ SumaryComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MemberComponent);
+    fixture = TestBed.createComponent(SumaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

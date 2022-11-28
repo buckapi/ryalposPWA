@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MemberComponent } from './member.component';
+import { SumaryComponent } from './sumary.component';
 
-const routes: Routes = [{ path: '', component: MemberComponent }];
+const routes: Routes = [{ path: '', component: SumaryComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MemberRoutingModule { }
+export class SumaryRoutingModule { }
