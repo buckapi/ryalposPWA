@@ -21,14 +21,28 @@
                     </a>
                 </div>
               <div class="item_link">
-                    <button type="button" name="uploadItem" aria-label="uploadItem" disabled [hidden]="router.url.includes('estilistas')"
+                    <button type="button" name="uploadItem" aria-label="uploadItem" disabled [hidden]="router.url.includes('estilistas') || router.url.includes('specialties')|| router.url.includes('services')"
                         class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem" 
                         aria-label="btnNavigation">
                         <div class="btn btnCircle_default">
                             <i class="ri-add-line"></i>
                         </div>
                     </button>
-                    <button (click)="openModal(1)" type="button" name="uploadItem" aria-label="uploadItem"  [hidden]="!router.url.includes('estilistas')"
+                    <button (click)="openModal(1)" type="button" name="uploadItem" aria-label="uploadItem"  [hidden]="!router.url.includes('estilistas') ||router.url.includes('specialties')"
+                        class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
+                        aria-label="btnNavigation">
+                        <div class="btn btnCircle_default">
+                            <i class="ri-add-line"></i>
+                        </div>
+                    </button>
+                    <button (click)="openModal(3)" type="button" name="uploadItem" aria-label="uploadItem"  [hidden]="!router.url.includes('specialties')"
+                        class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
+                        aria-label="btnNavigation">
+                        <div class="btn btnCircle_default">
+                            <i class="ri-add-line"></i>
+                        </div>
+                    </button>  
+                     <button (click)="openModal(4)" type="button" name="uploadItem" aria-label="uploadItem"  [hidden]="!router.url.includes('services')"
                         class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
                         aria-label="btnNavigation">
                         <div class="btn btnCircle_default">
@@ -65,7 +79,10 @@
         <div class="modal-dialog" >
             <div class="modal-content" >
                 <div class="modal-header" >
-                    <h1 class="title-modal" [hidden]="_butler.modalOption!=1">Agregar estilista</h1>                    <h1 class="title-modal" [hidden]="_butler.modalOption!=2">Nuevo ticket</h1>
+                    <h1 class="title-modal" [hidden]="_butler.modalOption!=1">Agregar estilista</h1>
+                    <h1 class="title-modal" [hidden]="_butler.modalOption!=2">Nuevo ticket</h1>
+                    <h1 class="title-modal" [hidden]="_butler.modalOption!=3">Nueva especialidad</h1>
+                    <h1 class="title-modal" [hidden]="_butler.modalOption!=4">Nuevo servicio</h1>
                     <button type="button" class="btn btnClose" data-bs-dismiss="modal" aria-label="Close">
                         <i class="ri-close-fill"></i>
                     </button>
@@ -109,7 +126,7 @@
                         </div>
                     </div> 
                  
-                     <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=2">
+                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=2">
                         <p>
                             Seleccione <span style="font-weight: 900;"> "servicio unico"</span> si solo desea registrar la venta de un servicio, Seleccione 
                             <span style="font-weight: 900;"> "Multiples servicios"</span>
@@ -122,6 +139,34 @@
                             <a href="page-create-multi.html"
                                 class="btn btn-create bg-white border border-solid border-snow text-dark">
                                 Multiples servicios
+                            </a>
+                        </div>
+                    </div>   
+                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">
+                        <p>
+                            Nombre de la especialidad
+                        </p>
+                        <div class="grid_buttonUpload">
+                          <!--   <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
+                               Servicio Unico 
+                            </a> -->
+                            <a href="page-create-multi.html"
+                                class="btn btn-create bg-white border border-solid border-snow text-dark">
+                                Aceptar
+                            </a>
+                        </div>
+                    </div> 
+                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=4">
+                        <p>
+                            Nombre del servicio
+                        </p>
+                        <div class="grid_buttonUpload">
+                          <!--   <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
+                               Servicio Unico 
+                            </a> -->
+                            <a href="page-create-multi.html"
+                                class="btn btn-create bg-white border border-solid border-snow text-dark">
+                                Aceptar
                             </a>
                         </div>
                     </div>
