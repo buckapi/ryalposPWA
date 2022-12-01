@@ -139,9 +139,9 @@
                     </li> -->
 
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link" [routerLink]="['../specialties']">
                             <div class="item-content-link">
-                                <div class="icon bg-pink-1 color-yellow">
+                                <div class="icon bg-cyan-1 color-cyan">
                                     <i class="ri-shield-star-fill"></i>
                                 </div>
                                 <h3 class="link-title">Especialidades</h3>
@@ -155,7 +155,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link"  [routerLink]="['../services']" >
                             <div class="item-content-link">
                                 <div class="icon bg-pink-1 color-pink">
                                     <i class="ri-brush-fill"></i>
@@ -163,7 +163,7 @@
                                 <h3 class="link-title">Servicios</h3>
                             </div>
                             <div class="other-cc">
-                                <span class="badge-text"> ()</span>
+                                <span class="badge-text"> ({{_butler.cardsSize}})</span>
                                 <div class="icon-arrow">
                                     <i class="ri-arrow-drop-right-line"></i>
                                 </div>

@@ -15,12 +15,12 @@ import { DealInterface } from '@app/interfaces/deal';
     //import * as $ from 'jquery';
    declare var $: any;
 @Component({
-  selector: 'app-specialties$',
-  templateUrl: './specialties.component.html',
-  styleUrls: ['./specialties.component.css']
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css']
 })
-export class SpecialtiesComponent implements AfterViewInit {
-   specialties$: any;
+export class ServicesComponent implements AfterViewInit {
+ services$: any;
   constructor(    private cdRef:ChangeDetectorRef,
       public script:ScriptService,
       private apollo: Apollo,
@@ -33,15 +33,15 @@ export class SpecialtiesComponent implements AfterViewInit {
 
     }
       public loadFromRestUniversal(){
-      this.specialties$=this.dataApiService.getAllBranchs();
-         this.specialties$.subscribe((data:any) => {
+      this.services$=this.dataApiService.getAllCategories();
+         this.services$.subscribe((data:any) => {
 
      let size = data.length;
      // this._butler.especialidadesSize=size;
     // console.log('size: '+size)
     for (let i=0;i<size;i++){
       // console.log('origen'+data[i].name);
-      this._butler.branchs.push(data[i]);
+      // this._butler.branchs.push(data[i]);
       // console.log('origen'+this._butler.branchs[i].name);
     }
   });
@@ -51,5 +51,6 @@ export class SpecialtiesComponent implements AfterViewInit {
     this.loadFromRestUniversal();
 
   }
+
 
 }

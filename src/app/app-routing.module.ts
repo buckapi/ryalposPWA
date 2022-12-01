@@ -32,6 +32,7 @@ const routes: Routes = [
 { path: 'member', loadChildren: () => import('./components/pages/member/member.module').then(m => m.MemberModule) },
 { path: 'sumary', loadChildren: () => import('./components/pages/sumary/sumary.module').then(m => m.SumaryModule),canActivate: [AuthGuard] },
 { path: 'specialties', loadChildren: () => import('./components/pages/specialties/specialties.module').then(m => m.SpecialtiesModule) },
+{ path: 'services', loadChildren: () => import('./components/pages/services/services.module').then(m => m.ServicesModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

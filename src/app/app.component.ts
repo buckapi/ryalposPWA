@@ -34,6 +34,7 @@ branchsSelected:any=false;
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 branchs$:any;
     members$: any;
+    cards$: any;
       // branchs$: Observable<any>;
   public adapter = new DemoFilePickerAdapter(this.http,this._butler);
   public myFiles: FilePreviewModel[] = [];
@@ -238,7 +239,12 @@ public aleatorio(a:any,b:any) {
       let size = data.length;
 this._butler.especialistasSize=size;
 });
-      ;
+ this.cards$=this.dataApiService.getAllCategories();
+    this.cards$.subscribe((data:any) => {
+      let size = data.length;
+this._butler.cardsSize=size;
+});
+
 
         this.branchs$=this.dataApiService.getAllBranchs();
         this.branchs$.subscribe((data:any) => {
