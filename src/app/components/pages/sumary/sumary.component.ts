@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, AfterViewInit } from '@angular/core';
+import {Butler} from '@app/services/butler.service';
 @Component({
   selector: 'app-sumary',
   templateUrl: './sumary.component.html',
   styleUrls: ['./sumary.component.css']
 })
-export class SumaryComponent implements OnInit {
+export class SumaryComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(
+      public _butler: Butler
+    ) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this._butler.medio=false;
   }
 
 }

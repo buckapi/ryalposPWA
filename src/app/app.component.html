@@ -1,45 +1,34 @@
 
  <div id="wrapper">
-        <!-- START CONTENT -->
-        <div id="content">
-  <app-header  ></app-header>
-  <router-outlet></router-outlet>
-   <!-- <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button> -->
-
-            <!-- ===================================
-              START THE HEADER
-            ==================================== -->
-       
-            <!-- ===================================
-              START THE SPACE STICKY
-            ==================================== -->
-            <div class="space-sticky"></div>
-            <!-- ===================================
-              START THE NFT SWIPER
-            ==================================== -->
-  
-            <!-- ===================================
-              START THE BEST SELLER
-            ==================================== -->
-           
-        </div>
+    <div id="content">
+    <app-header  ></app-header>
+    <router-outlet></router-outlet>
+        <div class="space-sticky"></div>          
+    </div>
         <!-- ===================================
           START THE BOTTOM NAVIGATION
         ==================================== -->
         <footer class="un-bottom-navigation filter-blur" [hidden]="router.url.includes('/login') || router.url.includes('/member')">
             <div class="em_body_navigation border-0 -active-links">
-                <div class="item_link">
+                <div class="item_link" >
                     <a [routerLink]="['estilistas']"class="btn btn_navLink" aria-label="btnNavigation">
-                        <div class="icon_current">
-                            <i class="ri-file-user-line"></i>
+                        <div class="icon_current" >
+                            <i class="ri-file-user-line " [ngStyle]="{'color': router.url.includes('/estilistas')  ? 'blue' : 'black'}"></i>
                         </div>
                         <div class="icon_active">
-                            <i class="ri-file-user-fill"></i>
+                            <i class="ri-file-user-fill" [ngStyle]="{'color': router.url.includes('/estilistas') ? 'blue' : 'black'}"></i>
                         </div>
                     </a>
                 </div>
               <div class="item_link">
-                    <button type="button" name="uploadItem" aria-label="uploadItem"
+                    <button type="button" name="uploadItem" aria-label="uploadItem" disabled [hidden]="router.url.includes('estilistas')"
+                        class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
+                        aria-label="btnNavigation">
+                        <div class="btn btnCircle_default">
+                            <i class="ri-add-line"></i>
+                        </div>
+                    </button>
+                    <button type="button" name="uploadItem" aria-label="uploadItem"  [hidden]="!router.url.includes('estilistas')"
                         class="btn btn_navLink without_active" data-bs-toggle="modal" data-bs-target="#mdllUploadItem"
                         aria-label="btnNavigation">
                         <div class="btn btnCircle_default">
@@ -47,13 +36,21 @@
                         </div>
                     </button>
                 </div>
-                <div class="item_link">
-                    <a [routerLink]="['/sumary']" class="btn btn_navLink" aria-label="btnNavigation">
-                        <div class="icon_active">
-                            <i class="ri-home-3-line"></i>
+                <div class="item_link"  >
+                   <!--  <a [routerLink]="['/sumary']" class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="current" >
+                            <i class="ri-home-3-line" [ngStyle]="{'color': _butler.medio ? 'black' : 'blue'}"></i>
                         </div>
-                        <div class="current">
-                            <i class="ri-home-3-fill"></i>
+                        <div class="icon_active">
+                            <i class="ri-home-3-fill" [ngStyle]="{'color': !_butler.medio ? 'black' : 'blue'}"></i>
+                        </div>
+                    </a> -->
+                    <a [routerLink]="['/sumary']"class="btn btn_navLink" aria-label="btnNavigation">
+                        <div class="icon_current" >
+                            <i class="ri-home-3-line " [ngStyle]="{'color': router.url.includes('/sumary') ? 'blue' : 'black'}"></i>
+                        </div>
+                        <div class="icon_active">
+                            <i class="ri-home-3-fill" [ngStyle]="{'color': router.url.includes('/sumary')  ? 'blue' : 'black'}"></i>
                         </div>
                     </a>
                 </div>
@@ -73,44 +70,44 @@
                         <i class="ri-close-fill"></i>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <div class="content-upload-item text-center">
                         <p>
-                            <!-- Listado de servicios para el(la) miembro(a) <span>Estilista</span>  -->
-                            <span></span>
-                            
+                         <span></span>
                         </p>
-
                         <div class="grid_buttonUpload">
-                                     <div class="uploader-wrapper" style="background:white;" >
-                          <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
-                          </ngx-awesome-uploader >
-                        </div>
-                         <div class="form-group">
-                    <label>Nombre </label>
-                    <input type="text" class="form-control" placeholder='e. g. David '>
-                </div>
-                            <div class="form-group">
-                                <label>Espeialidad</label>
-                                <select class="form-select custom-select form-control"
-                                    aria-label="Default select example">
-                                    <option selected>Etilista</option>
-                                    <option value="Sales">Barbero</option>
-                                    <option value="Account">Peluquera</option>
-                                    <option value="NFTs">Otro</option>
-                                </select>
-                            </div>
-                            <<!-- a 
-                                class="btn btn-create bg-white border border-solid border-snow text-dark margin-b-20">
-                                Servicio unico
-                            </a> -->
-                            <a  class="btn btn-create bg-primary text-white margin-b-20">
-                                Aceptar
-                            </a>
+                             <div class="row">     
+                                <div class="col-md-6">
+                                      <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
+                                </ngx-awesome-uploader >
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nombre </label>
+                                        <input type="text" class="form-control" placeholder='e. g. David '>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Espeialidad</label>
+                    
+                                             <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs$.value)" >
+
+                                                    <option   [hidden]="branchsSelected"  >
+                                                    <span >
+                                                    Seleccione...  
+                                                    </span>
+
+                                                </option>
+                                                    <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{i}}">{{branch.name}}  </option>
+                                                  
+                                                </select>
+                                    </div>
+                                    <a  class="btn btn-create bg-primary text-white margin-b-20" style="color:white; text-weigth: 900;">
+                                        Aceptar
+                                    </a>
+                                </div>
+                            </div>                  
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer border-0">
                     <div class="env-pb"></div>
@@ -190,8 +187,6 @@
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header d-block pb-1">
-
-                    <!-- un-user-profile -->
                     <div class="un-user-profile">
                         <div class="image_user">
                             <picture>
@@ -209,7 +204,6 @@
                         <i class="ri-close-fill"></i>
                     </button>
 
-                    <!-- cover-balance -->
                     <div class="cover-balance">
                         <div class="un-balance">
                             <div class="content-balance">
@@ -292,88 +286,7 @@
                                 <span class="title_link">Salir</span>
                             </a>
                         </li>
-                     <!--    <li class="nav-item">
-                            <a class="nav-link" href="app-homes.html">
-                                <div class="icon_current">
-                                    <i class="ri-home-5-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-home-5-fill"></i>
-                                </div>
-                                <span class="title_link">Home Styles</span>
-
-                                <span class="xs-badge">8</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="app-pages.html">
-                                <div class="icon_current">
-                                    <i class="ri-pages-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-pages-fill"></i>
-                                </div>
-                                <span class="title_link">Page Packs</span>
-
-                                <div class="badge-circle">
-                                    <span class="doted_item"></span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="app-components.html">
-                                <div class="icon_current">
-                                    <i class="ri-layout-2-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-layout-2-fill"></i>
-                                </div>
-                                <span class="title_link">Components</span>
-
-                            </a>
-                        </li>
-
-                        <label class="title__label">other</label>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="page-help.html">
-                                <div class="icon_current">
-                                    <i class="ri-questionnaire-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-questionnaire-fill"></i>
-                                </div>
-                                <span class="title_link">Help Center</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="page-about.html">
-                                <div class="icon_current">
-                                    <i class="ri-file-info-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-file-info-fill"></i>
-                                </div>
-                                <span class="title_link">About Unic.</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="homepage.html" class="nav-link">
-                                <div class="icon_current">
-                                    <i class="ri-logout-box-r-line"></i>
-                                </div>
-                                <div class="icon_active">
-                                    <i class="ri-logout-box-r-fill"></i>
-                                </div>
-                                <span class="title_link">Sign Out</span>
-                            </a>
-                        </li>
- -->
-                    </ul>
-                    
+                    </ul>                    
                 </div>
 
 
@@ -381,7 +294,6 @@
                     <div class="em_darkMode_menu">
                         <label class="text" for="switchDark">
                             <h3>Modo Oscuro</h3>
-                            <!-- <p>Browsing in night mode</p> -->
                         </label>
                         <label class="switch_toggle toggle_lg theme-switch" for="switchDark">
                             <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark"
@@ -393,9 +305,6 @@
             </div>
         </div>
     </div>
-    <!-- ===================================
-      START THE MODAL SIDEBAR MENU - guest
-    ==================================== -->
     <div class="modal sidebarMenu -left -guest fade" id="mdllSidebar-guest" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -512,9 +421,6 @@
             </div>
         </div>
     </div>
-    <!-- ===================================
-      START STATUS CONNECTION
-    ==================================== -->
     <div class="d-flex justify-content-center">
         <div class="toast status-connection" role="alert" aria-live="assertive" aria-atomic="true"></div>
     </div>

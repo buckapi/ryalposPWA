@@ -74,7 +74,7 @@ export class ShopComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
+this._butler.medio=true;
     
      // this.products$=this.dataApi.products$;   
      this.categories$=this.dataApi.categories$;   

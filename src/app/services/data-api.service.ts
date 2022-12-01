@@ -34,6 +34,10 @@ export class DataApiService {
 		return ( this.http.get(url_api));		
 	}
 
+	getAllBranchs(){
+		const url_api = 'https://db.buckapi.us:7001/api/branchs';
+		return this.http.get(url_api);
+	}
 	getAllTransactions(){
 		const url_api = 'https://db.buckapi.us:7001/api/transactions';
 		return this.http.get(url_api);

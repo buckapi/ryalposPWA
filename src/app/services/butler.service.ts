@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Butler {
     car:any[]=[];
+        branchs:any[]=[];
     ticket:any[]=[];
     currency:number=1;
     init:number=1;
@@ -27,6 +28,7 @@ export class Butler {
     distance2:number=0;
     duration:number=0;
     biker:boolean=false;
+    medio:boolean=false;
     list:boolean=false;
     grid:boolean=false;
     hidden:boolean=false;

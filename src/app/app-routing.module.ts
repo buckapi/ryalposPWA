@@ -31,6 +31,7 @@ const routes: Routes = [
 { path: 'shops', loadChildren: () => import('./components/pages/shops/shops.module').then(m => m.ShopsModule) },
 { path: 'member', loadChildren: () => import('./components/pages/member/member.module').then(m => m.MemberModule) },
 { path: 'sumary', loadChildren: () => import('./components/pages/sumary/sumary.module').then(m => m.SumaryModule),canActivate: [AuthGuard] },
+{ path: 'specialties', loadChildren: () => import('./components/pages/specialties/specialties.module').then(m => m.SpecialtiesModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 
