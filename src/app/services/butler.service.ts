@@ -27,6 +27,7 @@ export class Butler {
     vector:any={};       
     string:string=""; 
     distance:string="";
+    modalOption:number=0;
     deviceType:string="";
     distance2:number=0;
     duration:number=0;

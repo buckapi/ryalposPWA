@@ -41,15 +41,12 @@
                                 </picture>
                                 <div class="content-text">
                                     <div class="btn-like-click" style="background:none;" >
-                                       <!--  <div class="btnLike">
-                                            <input type="checkbox">
-                                            <i class="ri-add-circle-fill text-primary"></i>
-                                            <span class="count-likes"> Ticket</span>
-                                        </div> -->
-                                          <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
+                                       
+                                          <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem" (click)="openModal(2)">
                                     <div class="color-text rounded-pill bg-snow btn-xs-size " >
-     <i class="ri-add-circle-fill text-primary" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
-                                     Ticket</div>
+                                        <i class="ri-add-circle-fill text-primary" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
+                                     Ticket
+                                 </div>
                                 </div>
                                     </div>
                                 </div>
@@ -89,7 +86,7 @@
                                         <p>{{member.name}} <i class="ri-checkbox-circle-fill"></i> </p>
                                     </div>
                                 </a>
-                                <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
+                                <div class="other-option"  (click)="openModal(2)" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
                                     <div class="color-text rounded-pill bg-snow btn-xs-size " >
      <i class="ri-add-circle-fill text-primary" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
                                      Ticket</div>

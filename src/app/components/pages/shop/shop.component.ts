@@ -50,6 +50,13 @@ export class ShopComponent implements AfterViewInit {
 
     }
 
+  openModal(i:any){
+    this._butler.modalOption=i;
+    // this._butler.skip=0;
+    // this._butler.limit=9;
+
+     
+  }
   loadProducts(){
     this._butler.skip=0;
     this._butler.limit=9;

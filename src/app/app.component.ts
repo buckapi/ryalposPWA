@@ -130,6 +130,10 @@ public preview :any={
 public setBranch(branch:any){
 
 }
+public openModal(i:any){
+  this._butler.modalOption=i;
+
+}
     onIsError(): void {
     this.isError = true;
     setTimeout(() => {
