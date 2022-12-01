@@ -40,11 +40,33 @@ branchs$:any;
   public myFiles: FilePreviewModel[] = [];
   public product:any={};
   public options:any=[];
+    public itemSpecialty :any={};
+    public itemStylisty :any={};
+    submittedStylist = false;
+  submittedSpecialty = false;
   showB=false;  
   submittedAcce = false;
   category="Seleccione una!";
   mensaje="Salida registrada!";
   randomSerial=0;
+    get f(): { [key: string]: AbstractControl } {
+      return this.specialty.controls;
+    }
+    get g(): { [key: string]: AbstractControl } {
+      return this.stylist.controls;
+    }
+    // get h(): { [key: string]: AbstractControl } {
+    //   return this.acce.controls;
+    // }
+
+   specialty: FormGroup = new FormGroup({
+    name: new FormControl('')
+  });
+   stylist: FormGroup = new FormGroup({
+    name: new FormControl('')
+  });
+
+
   new: FormGroup = new FormGroup({ 
   description: new FormControl(''),
   name: new FormControl(''),
@@ -237,7 +259,34 @@ public  setCategory(){
 public aleatorio(a:any,b:any) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
+  public sendSpecialty(){
+    this.submittedSpecialty=true;
+    if(this.specialty.invalid){
+      return
+    }
+    this.itemSpecialty=this.specialty.value;name;
+       this.dataApiService.saveSpecialty(this.itemSpecialty)
+   .subscribe((res:any) => {
+       console.log('enviado');
+        $('body').removeClass('modal-open');
+       this.toastSvc.success("Especialidad guardada con exito!" );
+       this.router.navigate(['/sumary']);
+     });    
+}
   ngAfterViewInit(): void {
+    this.stylist = this.formBuilder.group(
+      {
+        name: ['', Validators.required],
+      }
+    );
+    this.specialty = this.formBuilder.group(
+      {
+        name: ['', Validators.required],
+      }
+    );
+
+
+
     this.members$=this.dataApiService.getAllMembers();
     this.members$.subscribe((data:any) => {
       let size = data.length;

@@ -5,9 +5,6 @@
     <router-outlet></router-outlet>
         <div class="space-sticky"></div>          
     </div>
-        <!-- ===================================
-          START THE BOTTOM NAVIGATION
-        ==================================== -->
         <footer class="un-bottom-navigation filter-blur" [hidden]="router.url.includes('/login') || router.url.includes('/member')">
             <div class="em_body_navigation border-0 -active-links">
                 <div class="item_link" >
@@ -51,14 +48,6 @@
                     </button>
                 </div>
                 <div class="item_link"  >
-                   <!--  <a [routerLink]="['/sumary']" class="btn btn_navLink" aria-label="btnNavigation">
-                        <div class="current" >
-                            <i class="ri-home-3-line" [ngStyle]="{'color': _butler.medio ? 'black' : 'blue'}"></i>
-                        </div>
-                        <div class="icon_active">
-                            <i class="ri-home-3-fill" [ngStyle]="{'color': !_butler.medio ? 'black' : 'blue'}"></i>
-                        </div>
-                    </a> -->
                     <a [routerLink]="['/sumary']"class="btn btn_navLink" aria-label="btnNavigation">
                         <div class="icon_current" >
                             <i class="ri-home-3-line " [ngStyle]="{'color': router.url.includes('/sumary') ? 'blue' : 'black'}"></i>
@@ -71,9 +60,7 @@
             </div>
         </footer>
     </div>
-    <!-- ===================================
-      START THE MODAL UPLOAD
-    ==================================== -->
+
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllUploadItem" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
@@ -105,18 +92,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Espeialidad</label>
-                    
-                                             <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs$.value)" >
-
-                                                    <option   [hidden]="branchsSelected"  >
-                                                    <span >
-                                                    Seleccione...  
-                                                    </span>
-
-                                                </option>
-                                                    <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{i}}">{{branch.name}}  </option>
-                                                  
-                                                </select>
+                                        <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs$.value)" >
+                                            <option   [hidden]="branchsSelected"  >
+                                                <span >
+                                                Seleccione...  
+                                                </span>
+                                            </option>
+                                            <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{i}}">{{branch.name}}  </option>
+                                        </select>
                                     </div>
                                     <a  class="btn btn-create bg-primary text-white margin-b-20" style="color:white; text-weigth: 900;">
                                         Aceptar
@@ -142,28 +125,28 @@
                             </a>
                         </div>
                     </div>   
-                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">
-                        <p>
-                            Nombre de la especialidad
-                        </p>
-                        <div class="grid_buttonUpload">
-                          <!--   <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
-                               Servicio Unico 
-                            </a> -->
-                            <a href="page-create-multi.html"
-                                class="btn btn-create bg-white border border-solid border-snow text-dark">
-                                Aceptar
-                            </a>
-                        </div>
-                    </div> 
+
+                    <form [formGroup]="specialty" (ngSubmit)="sendSpecialty()">
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">
+                            <p>
+                                Nombre de la especialidad
+                            </p>
+                            <input  class="form-control"  upperCase  type="text"
+                            formControlName="name"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submittedSpecialty && f['name'].errors }">
+                            <div *ngIf="submittedSpecialty && f['name'].errors" class="invalid-feedback">
+                            <div *ngIf="f['name'].errors['required']">Campo requerido</div>
+                          </div>
+                          <button type="submit"  class="btn btn-sm-arrow bg-primary" style="color:white;" data-bs-dismiss="modal">Aceptar</button>
+                        </div> 
+                    </form>
+
                     <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=4">
                         <p>
                             Nombre del servicio
                         </p>
                         <div class="grid_buttonUpload">
-                          <!--   <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
-                               Servicio Unico 
-                            </a> -->
                             <a href="page-create-multi.html"
                                 class="btn btn-create bg-white border border-solid border-snow text-dark">
                                 Aceptar

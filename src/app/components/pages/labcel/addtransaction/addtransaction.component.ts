@@ -124,6 +124,7 @@ public setOption(option:any){
   if(option==5){this.optionSelectedText="REPARACION ✔";this.optionSelected=true;this.item.servicio="REPARACION";}
   
 }
+
 public setTechnical(technical:any){
   this.technical=technical;
   for (let i =0;i<this.technicals.length;i++){
@@ -256,15 +257,15 @@ public resetRepair(){
  this.repairSelected=false;
 }
 public resetOption(){
-  this.option=0;
+ this.option=0;
  this.optionSelected=false;
 }
 public resetType(){
-  this.type=0;
+ this.type=0;
  this.typeSelected=false;
 }
 public resetMethod(){
-  this.method=0;
+ this.method=0;
  this.methodSelected=false;
  this.cobro=0;
  this.folioTarjeta=0;

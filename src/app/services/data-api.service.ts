@@ -4,7 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { Butler } from "@app/services/butler.service";
 
-export interface TicketInterface {
+export interface SpecialtyInterface {
+
+}export interface TicketInterface {
 
 }
 export interface SerialInterface {
@@ -91,6 +93,12 @@ setSerialT(serial:SerialInterface, branch: string){
 		const url_api='https://db.buckapi.us:7001/api/transactions';
 		return this.http
 		.post<TicketInterface>(url_api, ticket)
+		.pipe(map(data => data));
+	}
+	saveSpecialty(specialty :SpecialtyInterface){
+		const url_api='https://db.buckapi.us:7001/api/branchs';
+		return this.http
+		.post<SpecialtyInterface>(url_api, specialty)
 		.pipe(map(data => data));
 	}
 }
