@@ -33,6 +33,7 @@ export class AppComponent implements AfterViewInit {
 branchsSelected:any=false;
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 branchs$:any;
+    members$: any;
       // branchs$: Observable<any>;
   public adapter = new DemoFilePickerAdapter(this.http,this._butler);
   public myFiles: FilePreviewModel[] = [];
@@ -232,10 +233,18 @@ public aleatorio(a:any,b:any) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
   ngAfterViewInit(): void {
+    this.members$=this.dataApiService.getAllMembers();
+    this.members$.subscribe((data:any) => {
+      let size = data.length;
+this._butler.especialistasSize=size;
+});
+      ;
+
         this.branchs$=this.dataApiService.getAllBranchs();
         this.branchs$.subscribe((data:any) => {
 
      let size = data.length;
+     this._butler.especialidadesSize=size;
     console.log('size: '+size)
     for (let i=0;i<size;i++){
       console.log('origen'+data[i].name);

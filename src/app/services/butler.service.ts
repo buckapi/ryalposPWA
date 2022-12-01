@@ -18,6 +18,8 @@ export class Butler {
     deal:any={};
     userActive:any={};
     totalProducts:number=0;
+    especialidadesSize:number=0;
+    especialistasSize:number=0;
     imagePreviewProduct:string="";
       subTotal:number=0;
     review:boolean=false;
