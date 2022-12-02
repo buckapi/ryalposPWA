@@ -40,6 +40,9 @@ branchs$:any;
       'assets/assetsryal/work.png'
     ]
   public options:any=[];
+    public specialtyToDelete :any={};
+    public stylistyToDelete :any={};
+    public serviceToDelete :any={};
     public itemSpecialty :any={};
     public itemStylisty :any={};
     public itemService :any={};
@@ -218,11 +221,21 @@ public calculate(){
       return
     }
     this.itemService=this.service.value;name;
+     this.itemService.status="active";
        this.dataApiService.saveService(this.itemService)
    .subscribe((res:any) => {
        this.toastSvc.success("servicio agregado con exito!" );
        this.router.navigate(['/sumary']);
      });    
+}
+public deleteSpecialty(){
+  this.specialtyToDelete=this._butler.specialtyToDelete;;
+  this.specialtyToDelete.status="deleted";
+        this.toastSvc.info("Especialidad borrada con exito!" );
+   this.dataApiService.updateSpecialty(this.specialtyToDelete, this.specialtyToDelete.id)
+        .subscribe(
+           tix => this.router.navigate(['/sumary'])
+      );
 }
   public sendStylist(){
     this.submittedStylist=true;
@@ -231,6 +244,7 @@ public calculate(){
     }
     this.itemStylisty=this.stylist.value;name;
     this.itemStylisty.images=this.images;
+    this.itemStylisty.status="active";
     this.itemStylisty.categoria=this.branchSelected;
        this.dataApiService.saveStylist(this.itemStylisty)
    .subscribe((res:any) => {
@@ -239,6 +253,7 @@ public calculate(){
        this.router.navigate(['/sumary']);
      });    
 }
+
    epicFunction() {
       this.deviceInfo = this.deviceService.getDeviceInfo();
       const isMobile = this.deviceService.isMobile();
@@ -294,12 +309,15 @@ public aleatorio(a:any,b:any) {
       return
     }
     this.itemSpecialty=this.specialty.value;name;
+
+     this.itemSpecialty.status="active";
        this.dataApiService.saveSpecialty(this.itemSpecialty)
    .subscribe((res:any) => {
        this.toastSvc.success("Especialidad guardada con exito!" );
        this.router.navigate(['/sumary']);
      });    
 }
+
   ngAfterViewInit(): void {
     this.stylist = this.formBuilder.group(
       {

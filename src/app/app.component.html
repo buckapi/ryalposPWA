@@ -183,7 +183,7 @@
                                             Precio sugerido
                                         </p>
                                         <div class="form-group">
-                                            <input  class="form-control"  upperCase  type="text"
+                                            <input  class="form-control"  upperCase  type="number"
                                             formControlName="basePrice"
                                             class="form-control"
                                             [ngClass]="{ 'is-invalid': submittedService && h['basePrice'].errors }" 
@@ -206,6 +206,34 @@
                             </div>
                         </div>
                     </form>
+                   
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=5">
+                            <div class="grid_buttonUpload">
+                                <div class="row"> 
+                                    <div class="col-md-12">               
+                                        <p>
+                                            Seguro desea borrar la especialidad: 
+                                            <strong>
+                                                
+                                            {{_butler.specialtyToDelete.name}} 
+                                            </strong>
+                                            ?
+                                        </p>
+                                     
+                                      
+                                        <button type="submit" (click)="deleteSpecialty()" class="btn btn-md-arrow bg-danger w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Borrar
+
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    
+
+
                 </div>
                 <div class="modal-footer border-0">
                     <div class="env-pb"></div>

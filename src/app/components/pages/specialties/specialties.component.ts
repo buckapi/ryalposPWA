@@ -32,6 +32,11 @@ export class SpecialtiesComponent implements AfterViewInit {
   // this.categories=CATEGORIES
 
     }
+
+    public delete(specialty:any){
+      this._butler.specialtyToDelete=specialty;
+        this._butler.modalOption=5;
+    }
       public loadFromRestUniversal(){
       this.specialties$=this.dataApiService.getAllBranchs();
          this.specialties$.subscribe((data:any) => {

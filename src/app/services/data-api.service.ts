@@ -59,6 +59,19 @@ export class DataApiService {
 		const url_api = 'https://db.buckapi.us:7001/api/members';
 		return this.http.get(url_api);
 	}
+	updateSpecialty(specialty :SpecialtyInterface, id: string){
+		const url_api=`https://db.buckapi.us:7001/api/branchs/${id}`;
+		return this.http
+		.put<SpecialtyInterface>(url_api, specialty)
+		.pipe(map(data => data));
+	}
+	updateService(service :ServiceInterface, id: string){
+		// let token = this.authService.getToken();
+		const url_api=`https://db.buckapi.us:7001/api/cards/${id}`;
+		return this.http
+		.put<ServiceInterface>(url_api, service)
+		.pipe(map(data => data));
+	}
 	getProduct(id: string){
 		const url_api = `https://db.buckapi.us:7001/api/products/${id}`;
 		return this.http.get(url_api);
@@ -81,12 +94,6 @@ export class DataApiService {
 		this.butler.serialT=this.branch.serialT;
 		return ( this.branch);		
 	}
-	// setSerialT(branch: string){
-	// 	const url_api = `https://db.buckapi.us:7001/api/branchs/${branch}`;
-	// 	this.branch = this.http.get(url_api);
-	// 	this.butler.serialT=this.branch.serialT;
-	// 	return ( this.branch);		
-	// }
 setSerialT(serial:SerialInterface, branch: string){
 		// let token = this.authService.getToken();
 		const url_api = `https://db.buckapi.us:7001/api/branchs/${branch}`;
