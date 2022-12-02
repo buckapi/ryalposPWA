@@ -132,46 +132,80 @@
                         <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">
                             <div class="grid_buttonUpload">
                                 <div class="row"> 
-                                    <div class="col-md-12">
-                                        
-                                    <p>
-                                        Nombre de la especialidad
-                                    </p>
+                                    <div class="col-md-12">               
+                                        <p>
+                                            Nombre de la especialidad
+                                        </p>
                                         <div class="form-group">
-                                        <input  class="form-control"  upperCase  type="text"
-                                        formControlName="name"
-                                        class="form-control"
-                                        [ngClass]="{ 'is-invalid': submittedSpecialty && f['name'].errors }" 
-                                        style="margin-top:10%;" 
-                                        >
-                                    </div>
+                                            <input  class="form-control"  upperCase  type="text"
+                                            formControlName="name"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submittedSpecialty && f['name'].errors }" 
+                                            style="margin-top:10%;" 
+                                            >
+                                        </div>
                                         <div *ngIf="submittedSpecialty && f['name'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['name'].errors['required']">Campo requerido</div>
-                                          </div>
-                                          <p></p>
-                                          <button type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
+                                            <div *ngIf="f['name'].errors['required']">Campo requerido</div>
+                                        </div>
+                                        <p></p>
+                                        <button type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
 
-<div class="ico">
-                                <i class="ri-arrow-drop-right-line"></i>
-                            </div>
-                                          </button>
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div> 
                     </form>
+                    <form [formGroup]="service" (ngSubmit)="sendService()">
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=4">
+                            <div class="grid_buttonUpload">
+                                <div class="row"> 
+                                    <div class="col-md-12">               
+                                        <p>
+                                            Nombre del servicio
+                                        </p>
+                                        <div class="form-group">
+                                            <input  class="form-control"  upperCase  type="text"
+                                            formControlName="name"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submittedService && h['name'].errors }" 
+                                            style="margin-top:10%;" 
+                                            >
+                                        </div>
+                                        <div *ngIf="submittedService && h['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="h['name'].errors['required']">Campo requerido</div>
+                                        </div>
+                                        <p></p>
+                                         <p>
+                                            Precio sugerido
+                                        </p>
+                                        <div class="form-group">
+                                            <input  class="form-control"  upperCase  type="text"
+                                            formControlName="basePrice"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submittedService && h['basePrice'].errors }" 
+                                            style="margin-top:10%;" 
+                                            >
+                                        </div>
+                                        <div *ngIf="submittedService && h['basePrice'].errors" class="invalid-feedback">
+                                            <div *ngIf="h['basePrice'].errors['required']">Campo requerido</div>
+                                        </div>
+                                        <p></p>
+                                        
+                                        <button type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
 
-                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=4">
-                        <p>
-                            Nombre del servicio
-                        </p>
-                        <div class="grid_buttonUpload">
-                            <a href="page-create-multi.html"
-                                class="btn btn-create bg-white border border-solid border-snow text-dark">
-                                Aceptar
-                            </a>
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer border-0">
                     <div class="env-pb"></div>
