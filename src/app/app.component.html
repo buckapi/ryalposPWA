@@ -75,57 +75,58 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=1">
-                        <p>
-                         <span></span>
-                        </p>
-                        <div class="grid_buttonUpload">
-                            <div class="row">     
-                                <div class="col-md-6">
-                                      <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
-                                </ngx-awesome-uploader >
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Nombre </label>
-                                        <input type="text" class="form-control" placeholder='e. g. David '>
+                    <form [formGroup]="stylist" (ngSubmit)="sendStylist()">
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=1">
+                            <p>
+                             <span></span>
+                            </p>
+                            <div class="grid_buttonUpload">
+                                <div class="row">     
+                                    <div class="col-md-6">
+                                          <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
+                                    </ngx-awesome-uploader >
                                     </div>
-                                    <div class="form-group">
-                                        <label>Espeialidad</label>
-                                        <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs$.value)" >
-                                            <option   [hidden]="branchsSelected"  >
-                                                <span >
-                                                Seleccione...  
-                                                </span>
-                                            </option>
-                                            <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{i}}">{{branch.name}}  </option>
-                                        </select>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input  class="form-control"  upperCase  type="text"
+                                            placeholder="Nombre del estilista" 
+                                            formControlName="name"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submittedSpecialty && g['name'].errors }" 
+                                            style="margin-top:10%;" 
+                                            >
+                                        </div>
+                                        <div *ngIf="submittedSpecialty && g['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="g['name'].errors['required']">Campo requerido</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Espeialidad</label>
+                                            <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs.value)" >
+                                                <option   [hidden]="branchsSelected"  >
+                                                    <span >
+                                                    Seleccione...  
+                                                    </span>
+                                                </option>
+                                                <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{branch.name}}">{{branch.name}}  </option>
+                                            </select>
+                                        </div>
+                                        <p></p>
+                                        <p></p>
+                                          <button disabled [hidden]="sendStylistFlag" type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                          </button>
+                                          <button [hidden]="!sendStylistFlag" type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                          </button>
                                     </div>
-                                    <p></p>
-                                    <a  class="btn btn-create bg-primary text-white margin-b-20" style="color:white; text-weigth: 900;">
-                                        Aceptar
-                                    </a>
-                                </div>
-                            </div>                  
-                        </div>
-                    </div> 
-                 
-                    <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=2">
-                        <p>
-                            Seleccione <span style="font-weight: 900;"> "servicio unico"</span> si solo desea registrar la venta de un servicio, Seleccione 
-                            <span style="font-weight: 900;"> "Multiples servicios"</span>
-                            si desea registrar la venta de multiples servicios
-                        </p>
-                        <div class="grid_buttonUpload">
-                            <a href="page-create-single.html" class="btn btn-create bg-primary text-white margin-b-20">
-                               Servicio Unico 
-                            </a>
-                            <a href="page-create-multi.html"
-                                class="btn btn-create bg-white border border-solid border-snow text-dark">
-                                Multiples servicios
-                            </a>
-                        </div>
-                    </div>   
+                                </div>                  
+                            </div>
+                        </div> 
+                    </form>
 
                     <form [formGroup]="specialty" (ngSubmit)="sendSpecialty()">
                         <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">

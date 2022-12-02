@@ -39,14 +39,21 @@ branchs$:any;
   public adapter = new DemoFilePickerAdapter(this.http,this._butler);
   public myFiles: FilePreviewModel[] = [];
   public product:any={};
+  public images:any=
+ [
+      'assets/assetsryal/work.png',
+      'jamundi'
+    ]
   public options:any=[];
     public itemSpecialty :any={};
     public itemStylisty :any={};
     submittedStylist = false;
+    sendStylistFlag = false;
   submittedSpecialty = false;
   showB=false;  
   submittedAcce = false;
   category="Seleccione una!";
+  branchSelected="";
   mensaje="Salida registrada!";
   randomSerial=0;
     get f(): { [key: string]: AbstractControl } {
@@ -92,7 +99,7 @@ three=false;
     },
   };
     public isError = false;
-    public images:any[]=[];
+    // public images:any[]=[];
     public cropperOptions = {
     minContainerWidth: '300',
     minContainerHeight: '300',
@@ -149,8 +156,12 @@ public preview :any={
       })
       .catch(error => console.log(error));
   }
-public setBranch(branch:any){
-
+public setBranch(name:any){
+  console.log('dato: '+name);
+this.itemStylisty.category=name;
+this.branchsSelected=true;
+this.sendStylistFlag=true;
+this.branchSelected=name;
 }
 public openModal(i:any){
   this._butler.modalOption=i;
@@ -206,6 +217,23 @@ public calculate(){
     this.tixToAdd={};
     this.quantity=1;
   }
+
+  public sendStylist(){
+    this.submittedStylist=true;
+    if(this.stylist.invalid){
+      return
+    }
+    this.itemStylisty=this.stylist.value;name;
+    this.itemStylisty.images=this.images;
+    this.itemStylisty.categoria=this.branchSelected;
+       this.dataApiService.saveStylist(this.itemStylisty)
+   .subscribe((res:any) => {
+       // console.log('enviado');
+        $('body').removeClass('modal-open');
+       this.toastSvc.success("Estilista agregado con exito!" );
+       this.router.navigate(['/sumary']);
+     });    
+}
    epicFunction() {
       this.deviceInfo = this.deviceService.getDeviceInfo();
       const isMobile = this.deviceService.isMobile();
@@ -267,7 +295,7 @@ public aleatorio(a:any,b:any) {
     this.itemSpecialty=this.specialty.value;name;
        this.dataApiService.saveSpecialty(this.itemSpecialty)
    .subscribe((res:any) => {
-       console.log('enviado');
+       // console.log('enviado');
         $('body').removeClass('modal-open');
        this.toastSvc.success("Especialidad guardada con exito!" );
        this.router.navigate(['/sumary']);
@@ -304,11 +332,11 @@ this._butler.cardsSize=size;
 
      let size = data.length;
      this._butler.especialidadesSize=size;
-    console.log('size: '+size)
+    // console.log('size: '+size)
     for (let i=0;i<size;i++){
-      console.log('origen'+data[i].name);
+      // console.log('origen'+data[i].name);
       this._butler.branchs.push(data[i]);
-      console.log('origen'+this._butler.branchs[i].name);
+      // console.log('origen'+this._butler.branchs[i].name);
     }
     });
 
