@@ -80,7 +80,7 @@
                          <span></span>
                         </p>
                         <div class="grid_buttonUpload">
-                             <div class="row">     
+                            <div class="row">     
                                 <div class="col-md-6">
                                       <ngx-awesome-uploader class="fondo" #uploader [adapter]="adapter" [enableCropper]="true"     [captions]="captions">
                                 </ngx-awesome-uploader >
@@ -101,6 +101,7 @@
                                             <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{i}}">{{branch.name}}  </option>
                                         </select>
                                     </div>
+                                    <p></p>
                                     <a  class="btn btn-create bg-primary text-white margin-b-20" style="color:white; text-weigth: 900;">
                                         Aceptar
                                     </a>
@@ -128,17 +129,34 @@
 
                     <form [formGroup]="specialty" (ngSubmit)="sendSpecialty()">
                         <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=3">
-                            <p>
-                                Nombre de la especialidad
-                            </p>
-                            <input  class="form-control"  upperCase  type="text"
-                            formControlName="name"
-                            class="form-control"
-                            [ngClass]="{ 'is-invalid': submittedSpecialty && f['name'].errors }">
-                            <div *ngIf="submittedSpecialty && f['name'].errors" class="invalid-feedback">
-                            <div *ngIf="f['name'].errors['required']">Campo requerido</div>
-                          </div>
-                          <button type="submit"  class="btn btn-sm-arrow bg-primary" style="color:white;" data-bs-dismiss="modal">Aceptar</button>
+                            <div class="grid_buttonUpload">
+                                <div class="row"> 
+                                    <div class="col-md-12">
+                                        
+                                    <p>
+                                        Nombre de la especialidad
+                                    </p>
+                                        <div class="form-group">
+                                        <input  class="form-control"  upperCase  type="text"
+                                        formControlName="name"
+                                        class="form-control"
+                                        [ngClass]="{ 'is-invalid': submittedSpecialty && f['name'].errors }" 
+                                        style="margin-top:10%;" 
+                                        >
+                                    </div>
+                                        <div *ngIf="submittedSpecialty && f['name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['name'].errors['required']">Campo requerido</div>
+                                          </div>
+                                          <p></p>
+                                          <button type="submit"  class="btn btn-md-arrow bg-primary w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Aceptar
+
+<div class="ico">
+                                <i class="ri-arrow-drop-right-line"></i>
+                            </div>
+                                          </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div> 
                     </form>
 
