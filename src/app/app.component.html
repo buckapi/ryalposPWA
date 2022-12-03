@@ -253,6 +253,27 @@
                                 </div>
                             </div>
                         </div> 
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=7">
+                            <div class="grid_buttonUpload">
+                                <div class="row"> 
+                                    <div class="col-md-12">               
+                                        <p>
+                                            Seguro desea borrar el estilista: 
+                                            <strong>
+                                                
+                                            {{_butler.stylistToDelete.name}} 
+                                            </strong>
+                                            ?
+                                        </p>
+                                        <button type="submit" (click)="deleteStylist()" class="btn btn-md-arrow bg-danger w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Borrar
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                 </div>
                 <div class="modal-footer border-0">
                     <div class="env-pb"></div>
@@ -373,7 +394,7 @@
                 <div class="modal-body">
                     <ul class="nav flex-column -active-links">
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['/sumary']">
+                            <a class="nav-link" [routerLink]="['/sumary']" data-bs-dismiss="modal">
                                 <div class="icon_current">
                                          <i class="ri-home-3-line"></i>
 
@@ -385,7 +406,7 @@
                             </a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['estilistas']">
+                            <a class="nav-link" [routerLink]="['estilistas'] " data-bs-dismiss="modal">
                                 <div class="icon_current">
                                          <i class="ri-file-user-line"></i>
 
@@ -410,7 +431,7 @@
 
                         <label class="title__label"></label>
                           <li class="nav-item">
-                            <a  class="nav-link">
+                            <a  class="nav-link" [routerLink]="['settings']" data-bs-dismiss="modal">
                                 <div class="icon_current">
                                     <i class="ri-equalizer-line"></i>
                                 </div>
@@ -421,7 +442,7 @@
                             </a>
                         </li>
                              <li class="nav-item">
-                            <a [routerLink]="['/login']" class="nav-link">
+                            <a [routerLink]="['/login']" class="nav-link" data-bs-dismiss="modal">
                                 <div class="icon_current">
                                     <i class="ri-logout-box-r-line"></i>
                                 </div>

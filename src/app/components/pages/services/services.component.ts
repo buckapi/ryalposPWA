@@ -32,9 +32,9 @@ export class ServicesComponent implements AfterViewInit {
   // this.categories=CATEGORIES
 
     }
-       public delete(service:any){
+    public delete(service:any){
       this._butler.serviceToDelete=service;
-        this._butler.modalOption=6;
+      this._butler.modalOption=6;
     }
       public loadFromRestUniversal(){
       this.services$=this.dataApiService.getAllCategories();

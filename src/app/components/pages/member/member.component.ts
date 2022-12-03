@@ -13,7 +13,10 @@ export class MemberComponent implements OnInit {
     public _butler:Butler
 
     ) { }
-
+    public delete(){
+      this._butler.stylistToDelete=this._butler.preview;
+      this._butler.modalOption=7;
+    }
   ngOnInit(): void {
   }
 

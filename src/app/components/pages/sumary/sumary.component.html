@@ -1,260 +1,142 @@
-  <div class="space-sticky"></div>
-            <!-- ===================================
-              START THE ACCOUNT DETAILS
-            ==================================== -->
-            <section class="un-my-account">
-                <!-- head -->
-                <div class="head">
-                    <div class="my-personal-account">
-                        <div class="user">
-                            <picture>
-                                <source srcset="assets/assetsryal/images/avatar/11.webp" type="image/webp">
-                                <img src="assets/assetsryal/images/avatar/11.jpg" alt="">
-                            </picture>
-                            <div class="txt-user">
-                                <h1>Ryal POS</h1>
-                                <p>Beauty Salon Administrator V 1.0</p>
-                            </div>
-                        </div>
-                       <!--  <button type="button" class="btn btn-copy-address">
-                            <input type="checkbox">
-                            <div class="icon-box">
-                                <i class="ri-file-copy-2-line"></i>
-                            </div>
-                        </button> -->
-                    </div>
+<div class="space-sticky"></div>
+<section class="un-my-account">
+    <div class="head">
+        <div class="my-personal-account">
+            <div class="user">
+                <picture>
+                    <source srcset="assets/assetsryal/images/avatar/11.webp" type="image/webp">
+                    <img src="assets/assetsryal/images/avatar/11.jpg" alt="">
+                </picture>
+                <div class="txt-user">
+                    <h1>Ryal POS</h1>
+                    <p>Beauty Salon Administrator V 1.0</p>
                 </div>
-                <!-- body -->
-                <div class="body">
-                    <div class="img-coin-eth">
-                        <picture>
-                            <source srcset="assets/assetsryal/images/other/eth.webp" type="image/webp">
-                            <img src="assets/assetsryal/images/other/eth.png" alt="">
-                        </picture>
-                    </div>
-                    <div class="my-balance-text">
-                        <h2>Balance del dia</h2>
-                        <p>389,650 Pesos</p>
+            </div>
+        
+        </div>
+    </div>
+    <div class="body">
+        <div class="img-coin-eth">
+            <picture>
+                <source srcset="assets/assetsryal/images/other/eth.webp" type="image/webp">
+                <img src="assets/assetsryal/images/other/eth.png" alt="">
+            </picture>
+        </div>
+        <div class="my-balance-text">
+            <h2>Balance del dia</h2>
+            <p>389,650 Pesos</p>
 
-                        <button type="button"
-                            class="btn btn-md-size effect-click border-primary rounded-pill text-primary"
-                            data-bs-toggle="modal" data-bs-target="#mdllAddETH">
-                            Cierres de caja
-                        </button>
+            <button type="button"
+                class="btn btn-md-size effect-click border-primary rounded-pill text-primary"
+                data-bs-toggle="modal" data-bs-target="#mdllAddETH">
+                Cierres de caja
+            </button>
+        </div>
+    </div>
+</section>
+<section class="un-navMenu-default without-visit">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link visited" >
+                <div class="item-content-link">
+                    <div class="icon bg-green-1 color-green">
+                        <i class="ri-bookmark-3-line"></i>
+                    </div>
+                    <h3 class="link-title">Tickets</h3>
+                </div>
+                <div class="other-cc">
+               
+                    <div class="icon-arrow">
+                        <i class="ri-arrow-drop-right-line"></i>
                     </div>
                 </div>
-            </section>
-            <!-- ===================================
-              START ACCOUNT LIST
-            ==================================== -->
-            <section class="un-navMenu-default without-visit">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link visited" >
-                            <div class="item-content-link">
-                                <div class="icon bg-green-1 color-green">
-                                    <i class="ri-bookmark-3-line"></i>
-                                </div>
-                                <h3 class="link-title">Tickets</h3>
-                            </div>
-                            <div class="other-cc">
-                                <!-- <span class="badge-text"> 0Xe388...E162</span> -->
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['../estilistas']">
-                            <div class="item-content-link">
-                                <div class="icon bg-orange-1 color-orange">
-                                    <i class="ri-user-3-line"></i>
-                                </div>
-                                <h3 class="link-title">Estilistas</h3>
-                            </div>
-                             <div class="other-cc">
-                                <span class="badge-text"> ({{_butler.especialistasSize}})</span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-              <!--       <li class="nav-item">
-                        <a class="nav-link" href="page-my-item.html">
-                            <div class="item-content-link">
-                                <div class="icon bg-blue-1 color-blue">
-                                    <i class="ri-landscape-line"></i>
-                                </div>
-                                <h3 class="link-title">My Items</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"></span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-news-list.html">
-                            <div class="item-content-link">
-                                <div class="icon bg-pink-1 color-pink">
-                                    <i class="ri-file-list-2-line"></i>
-                                </div>
-                                <h3 class="link-title">News List</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"></span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['../estilistas']">
+                <div class="item-content-link">
+                    <div class="icon bg-orange-1 color-orange">
+                        <i class="ri-user-3-line"></i>
+                    </div>
+                    <h3 class="link-title">Estilistas</h3>
+                </div>
+                 <div class="other-cc">
+                    <span class="badge-text"> ({{_butler.especialistasSize}})</span>
+                    <div class="icon-arrow">
+                        <i class="ri-arrow-drop-right-line"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        <!-- <div class="sub-title-pkg">
+            <h2>Ajustes</h2>
+        </div> -->
+
+
+
+   <!--      <li class="nav-item">
+            <a class="nav-link" [routerLink]="['../specialties']">
+                <div class="item-content-link">
+                    <div class="icon bg-cyan-1 color-cyan">
+                        <i class="ri-shield-star-fill"></i>
+                    </div>
+                    <h3 class="link-title">Especialidades</h3>
+                </div>
+                <div class="other-cc">
+                    <span class="badge-text"> ({{_butler.especialidadesSize}})</span>
+                    <div class="icon-arrow">
+                        <i class="ri-arrow-drop-right-line"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['../services']" >
+                <div class="item-content-link">
+                    <div class="icon bg-pink-1 color-pink">
+                        <i class="ri-brush-fill"></i>
+                    </div>
+                    <h3 class="link-title">Servicios</h3>
+                </div>
+                <div class="other-cc">
+                    <span class="badge-text"> ({{_butler.cardsSize}})</span>
+                    <div class="icon-arrow">
+                        <i class="ri-arrow-drop-right-line"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
  -->
-                    <div class="sub-title-pkg">
-                        <h2>Ajustes</h2>
+
+
+      <!--   <div class="sub-title-pkg">
+            <h2>Otras opciones</h2>
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link">
+                <div class="item-content-link">
+                    <div class="icon bg-snow text-dark">
+                        <i class="ri-logout-box-r-line"></i>
                     </div>
-
-      <!--               <li class="nav-item">
-                        <div class="nav-link">
-                            <div class="item-content-link">
-                                <div class="txt">
-                                    <h3 class="link-title">Modo Oscuro</h3>
-                                    <p class="size-11 color-text m-0">Browsing in night mode</p>
-                                </div>
-                            </div>
-                            <div class="other-cc">
-
-                                <label class="switch_toggle toggle_lg theme-switch" for="switchDark">
-                                    <input type="checkbox" class="switchDarkMode theme-switch" id="switchDark"
-                                        aria-describedby="switchDark" aria-label="switchDark">
-                                    <span class="handle"></span>
-                                </label>
-
-                            </div>
-                        </div>
-                    </li> -->
-
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['../specialties']">
-                            <div class="item-content-link">
-                                <div class="icon bg-cyan-1 color-cyan">
-                                    <i class="ri-shield-star-fill"></i>
-                                </div>
-                                <h3 class="link-title">Especialidades</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"> ({{_butler.especialidadesSize}})</span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  [routerLink]="['../services']" >
-                            <div class="item-content-link">
-                                <div class="icon bg-pink-1 color-pink">
-                                    <i class="ri-brush-fill"></i>
-                                </div>
-                                <h3 class="link-title">Servicios</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"> ({{_butler.cardsSize}})</span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                 <!--    <li class="nav-item">
-                        <a class="nav-link" href="page-activity-settings.html">
-                            <div class="item-content-link">
-                                <div class="icon bg-red-1 color-red">
-                                    <i class="ri-notification-line"></i>
-                                </div>
-                                <h3 class="link-title">Activity Settings</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"></span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
- -->
-                 <!--    <div class="sub-title-pkg">
-                        <h2>Support</h2>
-                    </div>
-
-                    <li class="nav-item">
-                        <a class="nav-link visited" href="page-help.html">
-                            <div class="item-content-link">
-                                <div class="icon bg-green-1 color-green">
-                                    <i class="ri-questionnaire-line"></i>
-                                </div>
-                                <h3 class="link-title">Help Center</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"></span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-about.html">
-                            <div class="item-content-link">
-                                <div class="icon bg-blue-1 color-blue">
-                                    <i class="ri-information-line"></i>
-                                </div>
-                                <h3 class="link-title">About Unic.</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text"></span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li> -->
-
-                    <div class="sub-title-pkg">
-                        <h2>Otras opciones</h2>
-                    </div>
-
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <div class="item-content-link">
-                                <div class="icon bg-snow text-dark">
-                                    <i class="ri-logout-box-r-line"></i>
-                                </div>
-                                <h3 class="link-title">Salir</h3>
-                            </div>
-                            <div class="other-cc">
-                                <span class="badge-text size-18">😟</span>
-                                <div class="icon-arrow">
-                                    <i class="ri-arrow-drop-right-line"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-
-                </ul>
-            </section>
-            <!-- ===================================
-              START THE COPYRIGHT MARK
-            ==================================== -->
-            <section class="copyright-mark">
-                <div class="content">
-                    <img class="logo-gray" src="assets/assetsryal/images/logo_07.png" alt="image">
-                    <p>Copyright © Ryal POS 2022</p>
+                    <h3 class="link-title">Salir</h3>
                 </div>
+                <div class="other-cc">
+                    <span class="badge-text size-18">😟</span>
+                    <div class="icon-arrow">
+                        <i class="ri-arrow-drop-right-line"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+ -->
+
+    </ul>
+</section>
+<section class="copyright-mark">
+    <div class="content">
+        <img class="logo-gray" src="assets/assetsryal/images/logo_07.png" alt="image">
+        <p>Copyright © Ryal POS 2022</p>
+    </div>
+</section>

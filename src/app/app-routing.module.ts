@@ -33,6 +33,7 @@ const routes: Routes = [
 { path: 'sumary', loadChildren: () => import('./components/pages/sumary/sumary.module').then(m => m.SumaryModule),canActivate: [AuthGuard] },
 { path: 'specialties', loadChildren: () => import('./components/pages/specialties/specialties.module').then(m => m.SpecialtiesModule) },
 { path: 'services', loadChildren: () => import('./components/pages/services/services.module').then(m => m.ServicesModule) },
+{ path: 'settings', loadChildren: () => import('./components/pages/settings/settings.module').then(m => m.SettingsModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

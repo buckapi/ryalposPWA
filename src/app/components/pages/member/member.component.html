@@ -22,11 +22,10 @@
                                 <p>{{_butler.preview.ategoria}}</p>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-copy-address mt-3">
-                            <input type="checkbox">
-                            <div class="icon-box">
+                        <button type="button" (click)="delete()" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem" class="btn btn-copy-address mt-3">
+                            
                                 <i class="ri-delete-bin-fill text-danger"></i>
-                            </div>
+                         
                         </button>
                     </div>
                 </div>
