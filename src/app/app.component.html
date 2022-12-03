@@ -88,6 +88,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                             <label>Nombre</label>
                                             <input  class="form-control"  upperCase  type="text"
                                             placeholder="Nombre del estilista" 
                                             formControlName="name"
@@ -100,14 +101,14 @@
                                             <div *ngIf="g['name'].errors['required']">Campo requerido</div>
                                         </div>
                                         <div class="form-group">
-                                            <label>Espeialidad</label>
+                                            <label>Especialidad</label>
                                             <select   #branchs class="form-control  " id="branch"  (change)="setBranch(branchs.value)" >
                                                 <option   [hidden]="branchsSelected"  >
                                                     <span >
                                                     Seleccione...  
                                                     </span>
                                                 </option>
-                                                <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{branch.name}}">{{branch.name}}  </option>
+                                                <option   *ngFor="let branch of _butler.branchs;let i = index"value="{{branch.name}}" [hidden]="branch.status!='active'">{{branch.name}}  </option>
                                             </select>
                                         </div>
                                         <p></p>
@@ -231,9 +232,27 @@
                                 </div>
                             </div>
                         </div> 
-                    
-
-
+                        <div class="content-upload-item text-center" [hidden]="_butler.modalOption!=6">
+                            <div class="grid_buttonUpload">
+                                <div class="row"> 
+                                    <div class="col-md-12">               
+                                        <p>
+                                            Seguro desea borrar el servicio: 
+                                            <strong>
+                                                
+                                            {{_butler.serviceToDelete.name}} 
+                                            </strong>
+                                            ?
+                                        </p>
+                                        <button type="submit" (click)="deleteService()" class="btn btn-md-arrow bg-danger w-100" style="color:white;" data-bs-dismiss="modal" style="margin-top:10%;color:white; font-weight:900; justify-content: center;">Borrar
+                                            <div class="ico">
+                                                <i class="ri-arrow-drop-right-line"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                 </div>
                 <div class="modal-footer border-0">
                     <div class="env-pb"></div>

@@ -24,13 +24,17 @@ export class ServicesComponent implements AfterViewInit {
   constructor(    private cdRef:ChangeDetectorRef,
       public script:ScriptService,
       private apollo: Apollo,
-    public dataApi: DataService,
-    public dataApiService: DataApiService,
+      public dataApi: DataService,
+      public dataApiService: DataApiService,
       public _butler: Butler,
       public router:Router
     ) { 
   // this.categories=CATEGORIES
 
+    }
+       public delete(service:any){
+      this._butler.serviceToDelete=service;
+        this._butler.modalOption=6;
     }
       public loadFromRestUniversal(){
       this.services$=this.dataApiService.getAllCategories();

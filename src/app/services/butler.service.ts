@@ -17,6 +17,8 @@ export class Butler {
     preview:any={};
     bramch:any={};
     specialtyToDelete:any={};
+    serviceToDelete:any={};
+    stylistToDelete:any={};
     deal:any={};
     userActive:any={};
     totalProducts:number=0;

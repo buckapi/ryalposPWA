@@ -65,11 +65,23 @@ export class DataApiService {
 		.put<SpecialtyInterface>(url_api, specialty)
 		.pipe(map(data => data));
 	}
-	updateService(service :ServiceInterface, id: string){
+	deleteSpecialty( id: string){
+		const url_api=`https://db.buckapi.us:7001/api/branchs/${id}`;
+		return this.http
+		.delete<SpecialtyInterface>(url_api)
+		.pipe(map(data => data));
+	}
+	deleteService(id: string){
 		// let token = this.authService.getToken();
 		const url_api=`https://db.buckapi.us:7001/api/cards/${id}`;
 		return this.http
-		.put<ServiceInterface>(url_api, service)
+		.delete<ServiceInterface>(url_api)
+		.pipe(map(data => data));
+	}
+	deleteStylist(id: string){
+		const url_api=`https://db.buckapi.us:7001/api/members/${id}`;
+		return this.http
+		.delete<StylistInterface>(url_api)
 		.pipe(map(data => data));
 	}
 	getProduct(id: string){

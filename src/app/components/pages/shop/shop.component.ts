@@ -10,8 +10,8 @@ import { ScriptStore } from '@app/services/script.store';
 import {CATEGORIES} from '@app/services/categories.service';
 import { SwiperOptions } from 'swiper';
 import { DealInterface } from '@app/interfaces/deal';
-    import { ChangeDetectorRef } from '@angular/core';
-    import { CapitalizeFirstPipe } from '@pipes/capitalizefirst.pipe';
+import { ChangeDetectorRef } from '@angular/core';
+import { CapitalizeFirstPipe } from '@pipes/capitalizefirst.pipe';
     //import * as $ from 'jquery';
    declare var $: any;
 @Component({
@@ -20,7 +20,7 @@ import { DealInterface } from '@app/interfaces/deal';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements AfterViewInit {
-    members$: any;
+  members$: any;
   date="Nov 30, 2022 00:00:00";
     config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
@@ -41,8 +41,8 @@ export class ShopComponent implements AfterViewInit {
   constructor(    private cdRef:ChangeDetectorRef,
       public script:ScriptService,
       private apollo: Apollo,
-    public dataApi: DataService,
-    public dataApiService: DataApiService,
+      public dataApi: DataService,
+      public dataApiService: DataApiService,
       public _butler: Butler,
       public router:Router
     ) { 
@@ -52,23 +52,15 @@ export class ShopComponent implements AfterViewInit {
 
   openModal(i:any){
     this._butler.modalOption=i;
-    // this._butler.skip=0;
-    // this._butler.limit=9;
-
-     
   }
   loadProducts(){
     this._butler.skip=0;
     this._butler.limit=9;
-
-     
   }
 
   setPreview(member:any){
     this._butler.preview=member;
-     this.router.navigate(['/member']);
-
-     
+    this.router.navigate(['/member']);
   }
    public viewChange(option:any){
     if(option=='grid'){
@@ -81,50 +73,19 @@ export class ShopComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-this._butler.medio=true;
-    
-     // this.products$=this.dataApi.products$;   
-     this.categories$=this.dataApi.categories$;   
-     this.deal=this.dataApiService.getProduct('63690c39f5378a17fb721fae') 
-     .subscribe((
-      deal$:DealInterface) => (
-        this.deal=deal$
-        // this._butler.idBuckapicard=this._butler.cards[0].id,
-        // this._butler.idApp=this._butler.cards[0].idApp,
-        // this._butler.idBranch=this._butler.cards[0].idBranch,
- //       console.log(JSON.stringify(this.deal))
-      ),      
-    );
- this.cdRef.detectChanges();
-   // this.loadProducts();
+    this._butler.medio=true;
+    this.categories$=this.dataApi.categories$;   
+    this.cdRef.detectChanges();
     this.loadFromRestUniversal();
   }
 
-
-public quick(tix:any){
-    let tixToView = tix;
-    this._butler.preview=tixToView;
-    // this._butler.preview.quantity=1; 
-    this._butler.imagePreviewProduct=this._butler.preview.images[0];
-      // this.router.navigate(['/product']);
-  } 
- public viewProduct(tix:any){
-    let tixToView = tix;
-    this._butler.preview=tixToView;
-    // this._butler.preview.quantity=1; 
-    this._butler.imagePreviewProduct=this._butler.preview.images[0];
-      this.router.navigate(['/product']);
-  } 
   public loadFromRestUniversal(){
       this.members$=this.dataApiService.getAllMembers();
   }
   loadmore(indice:any
     ){
-    // this.products$=[];
-    //console.log(indice);
-     this._butler.skip=this._butler.skip+9; 
+      this._butler.skip=this._butler.skip+9; 
       this.dataApi.getDataAPI(this._butler.skip,this._butler.limit);   
-     this.products$=this.dataApi.products$;  
-     // this._butler.limit=this._butler.limit+9; 
+      this.products$=this.dataApi.products$;  
   }
 }

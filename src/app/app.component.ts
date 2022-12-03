@@ -41,7 +41,7 @@ branchs$:any;
     ]
   public options:any=[];
     public specialtyToDelete :any={};
-    public stylistyToDelete :any={};
+    public stylistToDelete :any={};
     public serviceToDelete :any={};
     public itemSpecialty :any={};
     public itemStylisty :any={};
@@ -165,7 +165,7 @@ this.sendStylistFlag=true;
 this.branchSelected=name;
 }
 public openModal(i:any){
-  this._butler.modalOption=i;
+this._butler.modalOption=i;
 
 }
     onIsError(): void {
@@ -182,16 +182,16 @@ public minus(){
 public plus(){
   this.quantity=this.quantity+1;
 }
-public calculate(){
-  this.subTotalGral=0;
-  let indice = this._butler.car.length;
-    for (let i = 0; i < indice; i++){
-      this.subTotalGral=this.subTotalGral+this._butler.car[i].subTotal;
-      this._butler.subTotalGral=this.subTotalGral;
-    }
-  this.sent=true;
-  this.router.navigate(['/shop']);
-}
+// public calculate(){
+//   this.subTotalGral=0;
+//   let indice = this._butler.car.length;
+//     for (let i = 0; i < indice; i++){
+//       this.subTotalGral=this.subTotalGral+this._butler.car[i].subTotal;
+//       this._butler.subTotalGral=this.subTotalGral;
+//     }
+//   this.sent=true;
+//   this.router.navigate(['/shop']);
+// }
   public addToBag(quantity:any){
     this._butler.numProd=this._butler.numProd+1;
     this.tixToAdd.onCar=true;
@@ -231,8 +231,26 @@ public calculate(){
 public deleteSpecialty(){
   this.specialtyToDelete=this._butler.specialtyToDelete;;
   this.specialtyToDelete.status="deleted";
-        this.toastSvc.info("Especialidad borrada con exito!" );
-   this.dataApiService.updateSpecialty(this.specialtyToDelete, this.specialtyToDelete.id)
+  this.toastSvc.info("Especialidad borrada con exito!" );
+  this.dataApiService.deleteSpecialty( this.specialtyToDelete.id)
+        .subscribe(
+           tix => this.router.navigate(['/sumary'])
+      );
+}
+public deleteService(){
+  this.serviceToDelete=this._butler.serviceToDelete;;
+  this.serviceToDelete.status="deleted";
+  this.toastSvc.info("Servicio borrado con exito!" );
+  this.dataApiService.deleteService( this.serviceToDelete.id)
+        .subscribe(
+           tix => this.router.navigate(['/sumary'])
+      );
+}
+public deleteStylist(){
+  this.stylistToDelete=this._butler.stylistToDelete;;
+  this.stylistToDelete.status="deleted";
+  this.toastSvc.info("Estilista borrado con exito!" );
+  this.dataApiService.deleteStylist(this.stylistToDelete.id)
         .subscribe(
            tix => this.router.navigate(['/sumary'])
       );
@@ -317,7 +335,36 @@ public aleatorio(a:any,b:any) {
        this.router.navigate(['/sumary']);
      });    
 }
-
+public calculate(){
+   this.loadMembers();
+   this.loadCards();
+   this.loadBranchs();  
+}
+public loadMembers(){
+  this.members$=this.dataApiService.getAllMembers();
+    this.members$.subscribe((data:any) => {
+      let size = data.length;
+      this._butler.especialistasSize=size;
+    });
+}
+public loadCards(){
+  this.cards$=this.dataApiService.getAllCategories();
+    this.cards$.subscribe((data:any) => {
+      let size = data.length;
+      this._butler.cardsSize=size;
+    });
+}
+public loadBranchs(){
+  this.branchs$=this.dataApiService.getAllBranchs();
+    this.branchs$.subscribe((data:any) => {
+    let size = data.length;
+    this._butler.especialidadesSize=size;
+    this._butler.branchs=[];
+   for (let i=0;i<size;i++){
+      this._butler.branchs.push(data[i]);
+      }
+    });  
+}
   ngAfterViewInit(): void {
     this.stylist = this.formBuilder.group(
       {
@@ -335,26 +382,8 @@ public aleatorio(a:any,b:any) {
         basePrice: [0, Validators.required]
       }
     );
-
-    this.members$=this.dataApiService.getAllMembers();
-    this.members$.subscribe((data:any) => {
-      let size = data.length;
-      this._butler.especialistasSize=size;
-    });
-    this.cards$=this.dataApiService.getAllCategories();
-    this.cards$.subscribe((data:any) => {
-      let size = data.length;
-      this._butler.cardsSize=size;
-    });
-    this.branchs$=this.dataApiService.getAllBranchs();
-    this.branchs$.subscribe((data:any) => {
-    let size = data.length;
-    this._butler.especialidadesSize=size;
-   for (let i=0;i<size;i++){
-      this._butler.branchs.push(data[i]);
-      }
-    });  
-     this.epicFunction();
+this.calculate() 
+    this.epicFunction();
    
   }
 }

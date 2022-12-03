@@ -22,7 +22,7 @@
 
                 <div class="content-list-sellers">
                     <ul class="nav flex-column">
-                        <li class="nav-item" *ngFor="let service of services$ | async" >
+                        <li class="nav-item" *ngFor="let service of services$ | async"  [hidden]="service.status!='active'">
                             <div class="nav-link item-user-seller">
                                 <a class="item-user-img"  >
                             
@@ -37,7 +37,7 @@
 
                                     </div>
                                 </a>
-                                  <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem">
+                                  <div class="other-option" style="margin-right:2%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mdllUploadItem" (click)="delete(service)">
                                     <div class="color-text rounded-pill bg-snow btn-xs-size " >
      <i class="ri-delete-bin-fill text-danger" style="font-size: 1.3rem; margin-right: 10%; font-weight: initial;"> </i>
                                      Borrar</div>
