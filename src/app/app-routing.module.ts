@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@guards/auth.guard';
 
 const routes: Routes = [
-{ path:'', redirectTo: '/login', pathMatch:'full'},
+{ path:'', redirectTo: '/restaurant', pathMatch:'full'},
 { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule),canActivate: [AuthGuard]},
 { path: 'login', loadChildren: () => import('./components/pages/login/login.module').then(m => m.LoginModule) },
 { path: 'notifications', loadChildren: () => import('./components/pages/notifications/notifications.module').then(m => m.NotificationsModule) },
@@ -34,6 +34,7 @@ const routes: Routes = [
 { path: 'specialties', loadChildren: () => import('./components/pages/specialties/specialties.module').then(m => m.SpecialtiesModule) },
 { path: 'services', loadChildren: () => import('./components/pages/services/services.module').then(m => m.ServicesModule) },
 { path: 'settings', loadChildren: () => import('./components/pages/settings/settings.module').then(m => m.SettingsModule) },
+{ path: 'restaurant', loadChildren: () => import('./components/pages/restaurant/restaurant.module').then(m => m.RestaurantModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

@@ -4,19 +4,28 @@
     src: string;
 }  
 export const ScriptStore: Scripts[] = [
-
-    //{name: 'global', src: './assets/assetsdash/vendor/global/global.min.js'},
-    //{name: 'select', src: './assets/assetsdash/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'},
-    //{name: 'dataTables', src: './assets/assetsdash/vendor/datatables/js/jquery.dataTables.min.js'},
-    //{name: 'datatablesIni', src: './assets/assetsdash/js/plugins-init/datatables.init.js'},
-    //{name: 'custom', src: './assets/assetsdash/js/custom.min.js'},
-    //{name: 'deznav', src: './assets/assetsdash/js/deznav-init.js'},
-    //{name: 'demo', src: './assets/assetsdash/js/demo.js'}
-
-  {name: 'popper', src: './assets/assetsParts/js/vendor/popper.js'},
-  {name: 'bootstrap', src: './assets/assetsParts/js/vendor/bootstrap.min.js'},
-  {name: 'swiper', src: './assets/assetsParts/js/plugins/swiper-bundle.min.js'},
-  {name: 'glightbox', src: './assets/assetsParts/js/plugins/glightbox.min.js'},
- 
-  {name: 'script', src: './assets/assetsParts/js/script.js'}
+  {name: 'jquery', src: './assets/assetsrest/js/jquery-3.3.1.min.js'},
+  {name: 'popper', src: './assets/assetsrest/js/popper.min.js'},
+  {name: 'bundle', src: './assets/assetsrest/vendor/bootstrap-5/js/bootstrap.bundle.min.js'},
+  {name: 'main', src:    './assets/assetsrest/js/main.js'},
+  {name: 'color-scheme', src:    './assets/assetsrest/js/color-scheme.js'},
+  {name: 'chart', src:   './assets/assetsrest/vendor/chart-js-3.3.1/chart.min.js'},
+  {name: 'progressbar', src:    './assets/assetsrest/vendor/progressbar-js/progressbar.min.js'},
+  {name: 'swiper', src:     './assets/assetsrest/vendor/swiperjs-6.6.2/swiper-bundle.min.js'},
+  // {name: 'moment', src:  './https://cdn.jsdelivr.net/momentjs/latest/moment.min.js'},
+  {name: 'daterangepicker', src:   './assets/assetsrest/vendor/daterangepicker/daterangepicker.js'},
+  {name: 'nouislider', src:     './assets/assetsrest/vendor/nouislider/nouislider.min.js'},
+  {name: 'app', src:    './assets/assetsrest/js/app.js'}
 ];
+
+
+
+
+
+
+ 
+
+
+
+ 
+

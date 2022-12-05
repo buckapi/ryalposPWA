@@ -117,7 +117,7 @@ three=false;
     },
     spaceBetween: 30
   };
-  title = 'motogo';
+  title = 'restaurant';
 element:any;
 public quantity : number=1; 
 public sent : boolean=false; 
@@ -150,8 +150,18 @@ public preview :any={
   ){
     document.getElementById('modal1');
      this.script.load(     
-       // 'glightbox',
-       //    'swiper'
+    'jquery',
+'popper',
+'bundle',
+'main',
+'color-scheme',
+'chart',
+'progressbar',
+'swiper',
+// 'moment',
+'daterangepicker',
+'nouislider',
+'app'
       )
       .then(data => {
       })
